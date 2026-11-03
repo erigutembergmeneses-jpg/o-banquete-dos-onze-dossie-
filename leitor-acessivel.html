@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6f3eb">
+<title>O Banquete dos Onze — Leitura acessível</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f6f3eb;--ink:#253a32;--muted:#63736a;--line:#d8ddd1;--accent:#d9ef9c;--panel:#eaeede;--reading-size:20px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif}
+button,input,a{-webkit-tap-highlight-color:transparent}
+button,a{touch-action:manipulation}
+button{font:inherit;cursor:pointer}
+button:disabled{opacity:.45;cursor:not-allowed}
+a{color:inherit}
+:focus-visible{outline:3px solid #698532;outline-offset:5px}
+header{max-width:1320px;margin:auto;padding:28px 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{text-decoration:none;font-family:"Literata",serif;font-size:26px;letter-spacing:-1px;display:flex;align-items:center;gap:12px}
+.brand svg{width:28px}
+.header-note{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+main{max-width:1320px;margin:auto;padding:58px 5% 80px}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:10px}
+.eyebrow:before{content:"";width:7px;height:7px;background:#698532;border-radius:50%}
+.intro{display:flex;align-items:end;justify-content:space-between;gap:25px;padding-bottom:42px}
+h1{font-family:"Literata",serif;font-weight:400;font-size:clamp(36px,5.2vw,65px);line-height:1.14;letter-spacing:-.045em;margin:20px 0 14px}
+.subtitle{color:var(--muted);line-height:1.7;margin:0;max-width:540px}
+.workspace{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:70px;align-items:start}
+.reading-tools{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;gap:15px;font-size:12px;flex-wrap:wrap;position:sticky;top:0;background:var(--paper);z-index:10}
+.tool-group{display:flex;gap:6px;align-items:center}
+.small-btn{border:1px solid var(--line);background:transparent;border-radius:5px;padding:7px 10px;color:var(--ink);transition:background .2s}
+.small-btn:hover{background:var(--panel)}
+.small-btn:active{transform:scale(.95)}
+article{padding-top:32px}
+article h2{font-family:"Literata",serif;font-weight:400;font-size:clamp(24px,3vw,34px);line-height:1.2;letter-spacing:-.03em;margin:48px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--line);scroll-margin-top:80px}
+article h2:first-of-type{margin-top:0}
+article h3{font-family:"Literata",serif;font-weight:500;font-size:clamp(20px,2.4vw,25px);margin:34px 0 8px;letter-spacing:-.02em;scroll-margin-top:80px}
+article p{font-family:"Literata",serif;font-size:var(--reading-size);line-height:1.95;padding:10px 12px;margin:0 -12px 15px;border-left:3px solid transparent;transition:background .25s,border-color .25s;scroll-margin-top:80px}
+article p.active{background:var(--panel);border-left-color:#698532}
+article p:first-of-type:first-letter{float:left;font-size:66px;line-height:.95;padding:12px 10px 0 0}
+article blockquote{font-family:"Literata",serif;font-size:var(--reading-size);line-height:1.9;margin:0 -12px 20px;padding:16px 18px;border-left:4px solid #698532;background:var(--panel);border-radius:0 4px 4px 0}
+article blockquote p{padding:0;margin:0 0 10px;border-left:none;background:none}
+article blockquote p:last-child{margin-bottom:0}
+article figure{margin:24px -12px 24px;padding:12px;text-align:center;border:1px solid var(--line);border-radius:4px;background:#fbfaf6}
+article figure img{max-width:100%;height:auto;border-radius:2px}
+article figcaption{font-family:"DM Sans",sans-serif;font-size:12px;line-height:1.6;color:var(--muted);margin-top:10px}
+.toc{border:1px solid var(--line);border-radius:4px;padding:18px 22px;margin:28px 0 12px;background:var(--panel)}
+.toc h2{margin:0 0 10px;font-size:20px;border:none}
+.toc ol{margin:0;padding-left:20px;font-size:14px;line-height:1.9}
+.toc a{text-decoration:underline;text-underline-offset:3px}
+.endmark{text-align:center;color:#849775;font-size:24px;padding:15px}
+aside{position:sticky;top:25px;background:var(--panel);padding:28px;border-radius:3px;border-top:3px solid var(--ink)}
+.player-heading{display:flex;justify-content:space-between;align-items:center}
+.player-heading span{font-size:10px;letter-spacing:.13em;text-transform:uppercase}
+.sound-icon{display:flex;align-items:center;gap:3px;height:25px}
+.sound-icon i{width:3px;background:#547348;height:10px;border-radius:2px}
+.sound-icon i:nth-child(2),.sound-icon i:nth-child(4){height:20px}
+.sound-icon i:nth-child(3){height:27px}
+.playing .sound-icon i{animation:pulse .7s infinite alternate}
+.playing .sound-icon i:nth-child(2n){animation-delay:.3s}
+h2#player-title{font-family:"Literata",serif;font-weight:400;font-size:27px;margin:25px 0 8px;letter-spacing:-.03em;border:none;padding:0}
+.player-copy{font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 23px}
+.primary{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border:0;border-radius:4px;background:var(--ink);color:#fff;font-weight:600;transition:transform .2s,background .2s}
+.primary:hover{background:#3b5748;transform:translateY(-2px)}
+.primary:active{transform:translateY(0)}
+.primary svg{width:16px;height:16px}
+.progress{height:3px;background:#cdd6be;margin-top:22px}
+.progress span{display:block;height:100%;width:0;background:#52713f;transition:width .3s}
+.playback-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:10px;gap:8px;flex-wrap:wrap}
+.player-controls{display:flex;justify-content:space-between;align-items:center;padding:18px 0 22px;border-bottom:1px solid #cdd6be;gap:12px;flex-wrap:wrap}
+.text-btn{border:0;background:none;padding:5px 0;color:var(--ink);text-decoration:underline;text-underline-offset:4px;font-size:12px}
+select{font:inherit;color:var(--ink);background:transparent;border:1px solid #bcc8ae;border-radius:4px;padding:6px;font-size:12px}
+.upload{padding-top:23px}
+.upload label{font-size:12px;font-weight:700}
+.upload p,.notice{font-size:11px;line-height:1.7;color:var(--muted)}
+input[type=file]{width:100%;font-family:inherit;font-size:11px;margin:8px 0 14px;color:var(--muted)}
+input::file-selector-button{background:transparent;border:1px solid #bcc8ae;border-radius:4px;padding:8px;font:inherit;color:var(--ink);cursor:pointer;margin-right:8px}
+audio{width:100%;height:42px}
+.download{display:inline-block;font-size:12px;margin-top:12px;text-underline-offset:4px}
+[hidden]{display:none!important}
+.reading-footer{border-top:1px solid var(--line);margin-top:25px;padding-top:22px;display:flex;justify-content:space-between;gap:15px;color:var(--muted);font-size:12px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);max-width:1188px;margin:auto;padding:25px 0;display:flex;justify-content:space-between;color:var(--muted);font-size:12px;flex-wrap:wrap;gap:12px}
+body.contrast{--paper:#111;--ink:#fff;--muted:#ddd;--line:#666;--panel:#252525;--accent:#fff}
+.contrast .primary{background:#fff;color:#111}
+.contrast article figure{background:#1a1a1a}
+@keyframes pulse{to{transform:scaleY(.45)}}
+@media(max-width:900px){.workspace{gap:35px;grid-template-columns:minmax(0,1fr) 300px}}
+@media(max-width:720px){header{padding:20px 6%}.header-note{display:none}main{padding:35px 6% 45px}.intro{padding-bottom:30px}.workspace{display:flex;flex-direction:column;gap:30px}aside{position:static;width:100%;order:-1}.reader{width:100%}footer{margin:0 6%;line-height:1.6}article p{line-height:1.8}article h2{scroll-margin-top:110px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="#inicio" aria-label="Entrelinhas, ir para o início">
+<svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M3 5c5-1 8 0 11 3 3-3 6-4 11-3v18c-5-1-8 0-11 2-3-2-6-3-11-2V5Z" stroke="currentColor" stroke-width="1.5"/><path d="M14 8v17" stroke="currentColor" stroke-width="1.5"/></svg>
+entrelinhas<span style="color:#799154">.</span>
+</a>
+<span class="header-note">O Banquete dos Onze · edição acessível</span>
+</header>
+
+<main id="inicio">
+<section class="intro" aria-labelledby="book-title">
+<div>
+<div class="eyebrow">Romance histórico · Edição para leitura assistida</div>
+<h1 id="book-title">O Banquete<br>dos Onze.</h1>
+<p class="subtitle">A memória servida à mesa dos senhores.<br>Leia com os olhos ou acompanhe com os ouvidos.</p>
+</div>
+</section>
+
+<div class="workspace">
+<div class="reader">
+
+<nav class="reading-tools" aria-label="Ferramentas de leitura">
+<span id="progress-text">Capítulo 1 de 24</span>
+<div class="tool-group">
+<button class="small-btn" id="smaller" aria-label="Diminuir tamanho do texto">A−</button>
+<button class="small-btn" id="larger" aria-label="Aumentar tamanho do texto">A+</button>
+<button class="small-btn" id="contrast" aria-pressed="false">Contraste</button>
+<button class="small-btn" id="skip-toc" aria-label="Ir para o sumário">Sumário</button>
+</div>
+</nav>
+
+<article id="text" aria-labelledby="book-title">
+
+<!-- SUMÁRIO -->
+<nav class="toc" aria-label="Sumário">
+<h2 id="toc-title">Sumário</h2>
+<ol>
+<li><a href="#prefacio">Prefácio — Entre a lenda digital e a história real</a></li>
+<li><a href="#cap1">A casa que possuía seus donos</a></li>
+<li><a href="#cap2">O sobrado dos Cavalcante</a></li>
+<li><a href="#cap3">A mulher da cozinha</a></li>
+<li><a href="#cap4">O preço de uma família</a></li>
+<li><a href="#cap5">Os homens por trás das fortunas</a></li>
+<li><a href="#cap6">O documento desaparecido</a></li>
+<li><a href="#cap7">A carta de Tomás</a></li>
+<li><a href="#cap8">Os dez convites</a></li>
+<li><a href="#cap9">A casa iluminada</a></li>
+<li><a href="#cap10">Os homens à mesa</a></li>
+<li><a href="#cap11">O brinde dos senhores</a></li>
+<li><a href="#cap12">Conversas atrás das portas</a></li>
+<li><a href="#cap13">O nome pronunciado à mesa</a></li>
+<li><a href="#cap14">A mulher que conhecia os homens</a></li>
+<li><a href="#cap15">O reconhecimento de Celso</a></li>
+<li><a href="#cap16">O caderno sobre a mesa</a></li>
+<li><a href="#cap17">A leitura dos registros</a></li>
+<li><a href="#cap18">O delegado e a versão oficial</a></li>
+<li><a href="#cap19">O livro de contas</a></li>
+<li><a href="#cap20">O destino de Feliciana</a></li>
+<li><a href="#cap21">Os onze destinos</a></li>
+<li><a href="#cap22">A investigação esquecida</a></li>
+<li><a href="#cap23">O encontro de Helena e Tomás</a></li>
+<li><a href="#cap24">O que restou dos onze</a></li>
+<li><a href="#epilogo">Epílogo — O que os papéis não esqueceram</a></li>
+<li><a href="#posfacio">Posfácio — O banquete que nunca terminou</a></li>
+</ol>
+</nav>
+
+<!-- PREFÁCIO -->
+<section aria-labelledby="prefacio">
+<h2 id="prefacio">Prefácio — Entre a lenda digital e a história real</h2>
+<p>A fronteira entre a lenda digital e a história real pode ser um território fértil para a literatura, desde que o escritor não confunda invenção com documento. Foi nesse espaço de aproximação e distinção que nasceu este livro: não como reconstituição de um acontecimento comprovado, mas como romance de ficção histórica inspirado por uma narrativa que circulou na internet e por uma realidade social amplamente documentada.</p>
+<p>Em dezembro de 2025, começou a circular em páginas eletrônicas e redes sociais uma história intitulada <em>O Banquete Fatal Que Eliminou 11 Fazendeiros — A Ceia Mortal do Sobrado de Pernambuco, 1873</em>. A narrativa descrevia uma reunião de onze proprietários rurais, uma cozinheira escravizada, um suposto envenenamento coletivo e o desaparecimento da mulher depois da morte dos convidados.</p>
+<p>A investigação histórica, entretanto, não confirmou o episódio. A consulta à Hemeroteca Digital da Biblioteca Nacional, ao Arquivo Público Estadual Jordão Emerenciano e a edições do <em>Diário de Pernambuco</em> não permitiu localizar registro do banquete, dos onze homens ou de um inquérito relativo ao suposto envenenamento coletivo.</p>
+<blockquote>
+<p>Feliciana e Tomás são personagens ficcionais. Não são apresentados como indivíduos históricos cuja existência tenha sido comprovada por documentos. Suas experiências, porém, foram construídas a partir de situações que marcaram a vida de numerosas famílias submetidas à escravidão.</p>
+</blockquote>
+<p>A homenagem é dirigida às mulheres que tiveram seus nomes apagados, às crianças afastadas de suas famílias e a todos aqueles cuja experiência raramente encontrou lugar nos documentos produzidos pelos grupos dominantes.</p>
+<p>O leitor encontrará neste romance uma história inventada, mas não uma realidade social inventada. Que a leitura seja também um convite à reflexão sobre o que os documentos registram, o que deixam de registrar e o que a literatura pode fazer sem pretender ocupar o lugar da prova histórica.</p>
+<p><em>Erigutemberg Meneses — Advogado, escritor e pesquisador. Blumenau, Santa Catarina, Brasil. Novembro de 2026.</em></p>
+</section>
+
+<!-- CAPÍTULO 1 -->
+<section aria-labelledby="cap1">
+<h2 id="cap1">Capítulo 1 — A casa que possuía seus donos</h2>
+<figure>
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><rect fill='%23253a32' width='800' height='400'/><text x='400' y='200' fill='%23d9ef9c' font-family='serif' font-size='22' text-anchor='middle'>Ilustração 1 — A casa que possuía seus donos</text></svg>" alt="Ilustração em preto e branco de um sobrado rural pernambucano do século XIX, com varanda e telhado de telhas, cercado por canaviais.">
+<figcaption>Ilustração gerada por IA sob curadoria do autor, 2026. Peça ficcional; não constitui documentação histórica. CC BY-NC-ND 4.0.</figcaption>
+</figure>
+<p>O ar cheirava a açúcar queimado e a promessas antigas. Entre a casa-grande e a senzala, uma distância separava não apenas os corpos, mas também as possibilidades de escolher o próprio destino.</p>
+<p>Era dezembro de 1873. O calor parecia permanecer sobre Pernambuco mesmo depois que o sol começava a baixar. Vinha do litoral, atravessava os caminhos de terra, acompanhava os cursos dos rios e entrava pelas janelas dos sobrados.</p>
+<p>Pernambuco era uma sociedade de contrastes. Nos sobrados e nas casas-grandes, acumulavam-se móveis importados, cristais, livros e objetos que indicavam riqueza. Nas propriedades rurais, homens e mulheres escravizados trabalhavam sob coerção, sujeitos à vontade de seus senhores e às necessidades de uma economia que os tratava como propriedade.</p>
+<p>A Lei do Ventre Livre, promulgada em 28 de setembro de 1871, havia introduzido uma alteração importante na legislação imperial. Os filhos de mulheres escravizadas nascidos a partir daquela data eram considerados livres, embora a própria lei estabelecesse condições que mantinham essas crianças sob a autoridade dos senhores de suas mães durante parte da infância e juventude.</p>
+<p>Tomás, filho de Feliciana, nascera em 1852. Em 1865, quando foi separado da mãe, tinha treze anos. A legislação de 1871 não alterava retroativamente sua condição jurídica.</p>
+<p>Feliciana conhecia aquela divisão melhor do que qualquer pessoa. Aos quarenta e dois anos, trabalhava como cozinheira no sobrado. Sabia ouvir. Não porque tivesse acesso a todas as conversas, mas porque aprendera a perceber o que mudava quando alguém entrava numa sala.</p>
+<p>Naquela manhã de dezembro, enquanto preparava a massa do pão, pensava no filho. <strong>Tomás.</strong></p>
+<p>O nome surgia sem que precisasse chamá-lo. Havia oito anos que o rapaz fora retirado de sua convivência.</p>
+<p>Na mesa da cozinha havia uma carta recebida meses antes. Tomás informava que estava vivo, que aprendera a ler e que ainda se lembrava da mãe. O papel, dobrado muitas vezes, apresentava as marcas de quem o abrira e fechara repetidamente.</p>
+<p>A casa se preparava para receber onze homens. Na cozinha, a mulher que os serviria reunia, em silêncio, as lembranças que eles julgavam enterradas.</p>
+</section>
+
+<!-- CAPÍTULO 2 -->
+<section aria-labelledby="cap2">
+<h2 id="cap2">Capítulo 2 — O sobrado dos Cavalcante</h2>
+<p>As casas antigas guardam mais do que móveis e retratos. Guardam também as marcas das decisões tomadas por aqueles que nelas viveram.</p>
+<p>O Sobrado dos Cavalcante fora construído em 1812, segundo a tradição da família. No alto da entrada, o brasão da família exibia uma mão segurando um feixe de cana. A divisa em latim — <em>Manus quae tenet, tenetur</em> — podia ser traduzida como: a mão que segura também é segurada.</p>
+<p>Joaquim acordava cedo. Aos cinquenta e oito anos, tinha o rosto marcado pelo sol e pelos hábitos de uma vida de trabalho, negócios e autoridade. Sua esposa, Maria Amélia, morrera vinte anos antes.</p>
+<p>Henrique tinha trinta e um anos. Estudara Direito no Recife e voltara à propriedade com ideias diferentes das do pai. Falava sobre mudanças econômicas, investimentos e a necessidade de adaptar a administração dos engenhos às transformações do país.</p>
+<blockquote>
+<p>— O jornal voltou a falar da queda do preço do açúcar — comentou.</p>
+<p>— Os preços sobem e descem.</p>
+<p>— Também há notícias sobre os efeitos da Lei do Ventre Livre.</p>
+<p>— A lei não muda uma propriedade de um dia para o outro.</p>
+<p>— Não muda tudo — respondeu Henrique. — Mas muda alguma coisa.</p>
+</blockquote>
+<p>No começo da noite, a casa estava preparada. A mesa da sala de refeições receberia os convidados. Feliciana conferiu cada cadeira.</p>
+<p>Eram doze lugares: um para Joaquim, dez para os convidados e um que permaneceria vazio. O lugar vazio não representava uma pessoa que estivesse prestes a chegar. Representava alguém cuja ausência continuava presente na vida de Feliciana. <strong>Tomás.</strong></p>
+</section>
+
+<!-- CAPÍTULO 3 -->
+<section aria-labelledby="cap3">
+<h2 id="cap3">Capítulo 3 — A mulher da cozinha</h2>
+<p>Há mulheres que habitam as casas e há mulheres que aprendem a conhecê-las. Feliciana pertencera, durante muitos anos, à segunda categoria.</p>
+<p>Feliciana nascera numa propriedade rural de Pernambuco. Aos quarenta e dois anos, conhecia a rotina do Sobrado dos Cavalcante como poucos. Acordava antes do amanhecer. Lavava o rosto numa bacia de barro, vestia o avental e começava a preparar o café.</p>
+<p>A carta de Tomás estava sobre a mesa. Chegara em setembro de 1873, por intermédio de Elias, que trabalhava levando notícias entre propriedades.</p>
+<blockquote>
+<p>Minha mãe,</p>
+<p>Escrevo estas linhas sem saber se chegarão às suas mãos. Elias me disse que a senhora continua no Sobrado dos Cavalcante e que ainda espera notícias minhas.</p>
+<p>Estou vivo. Aprendi a ler com um homem que trabalhava na propriedade onde estive por algum tempo. Não sei se conseguirei vê-la novamente. Mas não esqueci a senhora.</p>
+<p>Peço que tenha cuidado. Os homens que nos separaram ainda possuem influência.</p>
+<p>Seu filho,<br>Tomás.</p>
+</blockquote>
+<figure>
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><rect fill='%23253a32' width='800' height='400'/><text x='400' y='200' fill='%23d9ef9c' font-family='serif' font-size='22' text-anchor='middle'>Ilustração 3 — A carta que não cicatrizou</text></svg>" alt="Gravura em preto e branco de uma mulher idosa negra lendo uma carta à luz de uma vela, sentada a uma mesa de madeira rústica.">
+<figcaption>Ilustração gerada por IA sob curadoria do autor, 2026. Peça ficcional; não constitui documentação histórica. CC BY-NC-ND 4.0.</figcaption>
+</figure>
+<p>A alforria que recebera em 1869 havia alterado sua condição jurídica. O documento concedia-lhe liberdade sob condições relacionadas à continuidade do serviço na casa. No documento, sua condição estava alterada. Na vida cotidiana, continuava a precisar calcular as consequências de contrariar o antigo senhor.</p>
+<p>A memória tornou-se seu primeiro arquivo. Guardava nomes, datas aproximadas e frases ouvidas em diferentes ocasiões. Não queria apenas recordar. Queria compreender.</p>
+</section>
+
+<!-- CAPÍTULO 4 -->
+<section aria-labelledby="cap4">
+<h2 id="cap4">Capítulo 4 — O preço de uma família</h2>
+<p>Em 1865, bastava trocar os nomes: chamar uma pessoa de "peça", a separação de "transferência" e a dor de "negócio". A violência adquiria, assim, a aparência de uma operação comercial.</p>
+<p>Em maio de 1865, na Zona da Mata pernambucana, Feliciana compreendeu que uma família podia ser desfeita sem que os responsáveis precisassem levantar a voz.</p>
+<blockquote>
+<p>— Feliciana, Tomás será levado.</p>
+<p>— Levado para onde, senhor?</p>
+<p>— Para outra propriedade. É uma decisão de negócio.</p>
+<p>— Que negócio pode ser feito com meu filho sem que eu saiba?</p>
+<p>— Não cabe a você discutir os negócios da propriedade.</p>
+<p>— Ele tem treze anos.</p>
+<p>— Sei quantos anos tem.</p>
+<p>— Então sabe que ainda é uma criança.</p>
+</blockquote>
+<figure>
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><rect fill='%23253a32' width='800' height='400'/><text x='400' y='200' fill='%23d9ef9c' font-family='serif' font-size='22' text-anchor='middle'>Ilustração 4 — A poeira vermelha</text></svg>" alt="Gravura em preto e branco de uma mulher negra de costas, observando de um alpendre uma carroça se afastando por uma estrada de terra, levantando poeira vermelha.">
+<figcaption>Ilustração gerada por IA sob curadoria do autor, 2026. Peça ficcional; não constitui documentação histórica. CC BY-NC-ND 4.0.</figcaption>
+</figure>
+<p>A transferência de Tomás não fora uma decisão isolada de Joaquim. Ao longo dos meses seguintes, Feliciana começou a reconhecer os nomes que apareciam nas conversas dos homens.</p>
+<p>Joaquim autorizara a operação. Antônio intermediara os interesses comerciais. José preparara o instrumento jurídico. Luís fornecera o documento médico utilizado para justificar a retirada. Raimundo organizara o transporte. Evaristo cuidara dos registros financeiros relacionados ao negócio.</p>
+<p>Esses seis homens estavam ligados diretamente à transferência.</p>
+<p>Em 1869, quatro anos depois da separação, Joaquim concedeu a Feliciana uma carta de alforria condicional. A pergunta que a acompanhava, porém, permanecia: <strong>Por quê?</strong></p>
+</section>
+
+<!-- CAPÍTULO 5 -->
+<section aria-labelledby="cap5">
+<h2 id="cap5">Capítulo 5 — Os homens por trás das fortunas</h2>
+<p>Há homens que constroem fortunas. E há fortunas que, depois de construídas, passam a decidir que espécie de homem seus donos podem ser.</p>
+<p>Em dezembro de 1873, onze homens estavam ligados por uma rede de interesses que se desenvolvera ao longo de vários anos. Seis estavam diretamente relacionados à transferência de Tomás, em 1865. Os outros cinco haviam se aproximado posteriormente.</p>
+
+<h3>1. Joaquim Cavalcante de Albuquerque — o proprietário</h3>
+<p>Aos cinquenta e oito anos, era o anfitrião do encontro e o homem cuja decisão estivera na origem da transferência de Tomás. Em 1865, autorizara a transferência do rapaz.</p>
+
+<h3>2. Antônio Vanderlei — o intermediário</h3>
+<p>Tinha quarenta e nove anos e mantinha uma casa comercial na Rua do Bom Jesus, no Recife. Em 1865, intermediara a transferência de Tomás.</p>
+
+<h3>3. José Tavares — o advogado</h3>
+<p>Tinha cinquenta e um anos e atuava como advogado em Olinda. Em 1865, preparara o instrumento relacionado à transferência de Tomás.</p>
+
+<h3>4. Luís Carneiro — o médico</h3>
+<p>Tinha quarenta e seis anos e mantinha consultório no Recife. Em 1865, fornecera o documento médico utilizado para justificar a retirada de Tomás.</p>
+
+<h3>5. Raimundo Lessa — o responsável pelo transporte</h3>
+<p>Tinha trinta e nove anos e trabalhava com atividades ligadas ao armazém e ao transporte de mercadorias. Em 1865, organizara o transporte de Tomás.</p>
+
+<h3>6. Evaristo Gouveia — o guardião dos registros</h3>
+<p>Tinha sessenta e quatro anos e vivia em Goiana. Em 1865, organizara registros financeiros relacionados à transferência.</p>
+
+<h3>7. Francisco Albuquerque — o advogado e político</h3>
+<p>Tinha cinquenta e cinco anos. Era advogado e político. Não havia participado diretamente da transferência de Tomás em 1865.</p>
+
+<h3>8. Manuel Rego Barros — o senhor de engenho</h3>
+<p>Tinha sessenta e dois anos e herdara do pai uma propriedade açucareira. Não há razão para tratá-lo como participante da transferência de Tomás.</p>
+
+<h3>9. Bento Figueira — o proprietário endividado</h3>
+<p>Tinha quarenta e cinco anos e herdara um engenho que, durante algum tempo, lhe proporcionara uma vida confortável. Sua aproximação com os seis homens ocorrera depois de 1865.</p>
+
+<h3>10. Álvaro Siqueira — o exportador</h3>
+<p>Tinha cinquenta e sete anos e dividia seu tempo entre o Recife e os contatos comerciais no exterior. Sua aproximação com o grupo ocorrera por meio de operações de exportação posteriores.</p>
+
+<h3>11. Celso Maranhão — o reformador de conveniência</h3>
+<p>Tinha trinta e quatro anos e era o mais jovem entre os onze. Não participara da transferência de Tomás.</p>
+
+<blockquote>
+<p>Os onze homens tinham histórias diferentes. A rede se sustentava em relações de dependência, troca de favores, interesses econômicos e circulação de informações. Mas havia uma coisa que não estava inteiramente sob o controle deles: a memória de quem sofrera as consequências.</p>
+</blockquote>
+</section>
+
+<!-- CAPÍTULO 6 -->
+<section aria-labelledby="cap6">
+<h2 id="cap6">Capítulo 6 — O documento desaparecido</h2>
+<p>Evaristo Gouveia confiava nos documentos. Não porque acreditasse que o papel fosse incorruptível, mas porque sabia que os homens podiam negar uma conversa, alterar uma lembrança e até jurar que nunca haviam conhecido alguém.</p>
+<p>Na tarde de dezembro de 1873, abriu o compartimento e retirou um volume de capa escura. Entre as anotações, uma delas o deteve:</p>
+<blockquote>
+<p>12 de julho de 1865. Recebido de J. C. a quantia de oitocentos mil-réis, referente à transferência de Tomás, filho de Feliciana, conforme instrumento lavrado por J. T. em 5 de maio do corrente ano. Testemunhas: A. V. e L. C.</p>
+</blockquote>
+<p>Evaristo passou o dedo pela linha. Conhecia cada abreviatura: Joaquim Cavalcante, José Tavares, Antônio Vanderlei e Luís Carneiro.</p>
+<p>Em janeiro de 1872, recebeu uma carta anônima. O remetente afirmava conhecer a existência do livro e saber o que havia dentro. Evaristo guardou a carta no compartimento e não respondeu.</p>
+<p>Meses depois, percebeu que uma correspondência de José Tavares, relativa à transferência de Tomás, não estava onde deveria. A carta não apareceu.</p>
+</section>
+
+<!-- CAPÍTULO 7 -->
+<section aria-labelledby="cap7">
+<h2 id="cap7">Capítulo 7 — A carta de Tomás</h2>
+<p>A carta chegaria em setembro, e a frase que mais inquietava Feliciana não era a que falava da saudade, mas a que dizia "os homens" — não "o homem" — como se a separação tivesse sido obra de muitos.</p>
+<blockquote>
+<p>Minha mãe,</p>
+<p>Escrevo estas linhas sem saber se chegarão às suas mãos. Elias me disse que a senhora ainda espera. Eu também espero, embora já não saiba exatamente o que espero.</p>
+<p>Aprendi a ler com um homem que passava pela propriedade onde estou. Agora consigo ler cartas e jornais. Descobri que o mundo é maior do que o lugar em que me mantiveram, mas não é mais justo por causa disso.</p>
+<p>Peço, porém, que tenha cuidado. Os homens que nos separaram não gostam de ser procurados. Prefiro que a senhora viva com a saudade a saber que a verdade lhe custou a vida.</p>
+<p>Um dia, se Deus quiser, nos veremos. Se não for possível, que ao menos a verdade não desapareça conosco.</p>
+<p>Seu filho,<br>Tomás.</p>
+</blockquote>
+<p>Na manhã seguinte, Feliciana procurou Elias. Ele explicou que Antônio Vanderlei havia intermediado a transferência; José Tavares preparara os documentos; Luís Carneiro assinara o documento médico; Raimundo Lessa organizara o transporte; e Evaristo Gouveia cuidara dos registros financeiros.</p>
+<p>Foi numa tarde de novembro, enquanto organizava a despensa, que encontrou um caderno de capa escura atrás de uma saca de farinha. Encontrou Tomás. Encontrou a data de 1865.</p>
+<figure>
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><rect fill='%23253a32' width='800' height='400'/><text x='400' y='200' fill='%23d9ef9c' font-family='serif' font-size='22' text-anchor='middle'>Ilustração 5 — O espelho atrás da farinha</text></svg>" alt="Gravura em preto e branco de mãos segurando um caderno de capa escura, retirado de trás de sacas de farinha em uma despensa.">
+<figcaption>Ilustração gerada por IA sob curadoria do autor, 2026. Peça ficcional; não constitui documentação histórica. CC BY-NC-ND 4.0.</figcaption>
+</figure>
+</section>
+
+<!-- CAPÍTULO 8 -->
+<section aria-labelledby="cap8">
+<h2 id="cap8">Capítulo 8 — Os dez convites</h2>
+<p>Há convites que se enviam por cortesia e há convites que se enviam por precaução. Os segundos exigem resposta, ainda que o destinatário preferisse não recebê-los.</p>
+<p>A reunião estava marcada para 14 de dezembro, no Sobrado dos Cavalcante. Os convites foram preparados no dia 8.</p>
+<blockquote>
+<p>Meu prezado amigo e correligionário,</p>
+<p>Tenho a honra de convidar Vossa Senhoria para uma reunião reservada, que se realizará neste Sobrado na noite de 14 de dezembro do corrente ano, às oito horas.</p>
+<p>O propósito do encontro é discutir assuntos de interesse comum aos proprietários da região, em particular os desdobramentos da Lei do Ventre Livre e seus possíveis efeitos sobre nossas propriedades e atividades agrícolas.</p>
+<p>Sua presença será de grande importância.</p>
+<p>Com os meus melhores cumprimentos,<br>Joaquim Cavalcante de Albuquerque.</p>
+</blockquote>
+<p>A referência à Lei do Ventre Livre oferecia uma justificativa respeitável. O assunto era suficientemente legítimo para justificar uma reunião. E suficientemente amplo para ocultar o verdadeiro motivo.</p>
+</section>
+
+<!-- CAPÍTULO 9 -->
+<section aria-labelledby="cap9">
+<h2 id="cap9">Capítulo 9 — A casa iluminada</h2>
+<p>Na noite de 14 de dezembro de 1873, o sobrado parecia mais iluminado do que de costume. Não eram as velas que o tornavam diferente, mas a expectativa daqueles que sabiam haver assuntos antigos à espera de uma resposta.</p>
+<p>Feliciana trabalhava havia três dias na organização da ceia. A carne de porco fora temperada com antecedência. A mandioca estava separada. O bacalhau aguardava o momento de ir ao forno.</p>
+<p>Ela não preparava uma armadilha. Não havia decidido envenenar os convidados, nem pretendia provocar a morte de qualquer um deles. Queria observar, ouvir e compreender o que ainda lhe faltava saber.</p>
+<p>Feliciana contou os lugares. Dez destinados aos convidados. Um para Joaquim. E um lugar adicional, sem cartão de nome. <strong>Doze ao todo.</strong></p>
+<p>Não explicou a ninguém por que aquele último lugar permanecia vazio. Não era uma cadeira reservada a alguém que pudesse chegar naquela noite. Era uma lembrança. Uma ausência que não precisava de convite para ocupar a casa.</p>
+</section>
+
+<!-- CAPÍTULO 10 -->
+<section aria-labelledby="cap10">
+<h2 id="cap10">Capítulo 10 — Os homens à mesa</h2>
+<p>Doze lugares, onze homens e uma cadeira vazia. Ninguém perguntou por que ela estava ali.</p>
+<p>Os convidados começaram a chegar pouco depois das oito. Antônio Vanderlei foi o primeiro. Francisco Albuquerque chegou em seguida, numa carruagem. Manuel Rego Barros chegou depois. Luís Carneiro veio de carruagem. José Tavares chegou com uma pasta de documentos debaixo do braço. Bento Figueira foi o seguinte. Raimundo Lessa chegou pouco depois. Álvaro Siqueira veio numa carruagem bem conservada. Celso Maranhão chegou a cavalo. Evaristo Gouveia foi o último.</p>
+<figure>
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><rect fill='%23253a32' width='800' height='400'/><text x='400' y='200' fill='%23d9ef9c' font-family='serif' font-size='22' text-anchor='middle'>Ilustração 6 — Doze lugares, onze homens</text></svg>" alt="Gravura em preto e branco de onze homens de terno sentados à mesa de jantar de um sobrado, com uma cozinheira negra servindo ao fundo e uma cadeira vazia à mesa.">
+<figcaption>Ilustração gerada por IA sob curadoria do autor, 2026. Peça ficcional; não constitui documentação histórica. CC BY-NC-ND 4.0.</figcaption>
+</figure>
+<p>Feliciana entrou com o primeiro prato. Colocou a travessa sobre a mesa e começou a servir. Não procurou os olhos dos homens. Mas ela observava.</p>
+</section>
+
+<!-- CAPÍTULO 11 -->
+<section aria-labelledby="cap11">
+<h2 id="cap11">Capítulo 11 — O brinde dos senhores</h2>
+<p>O primeiro brinde fora feito à prosperidade, o segundo à continuidade dos negócios, o terceiro à prudência. Mas Bento, que bebia mais do que os outros, já não conseguia sustentar o silêncio de oito anos.</p>
+<blockquote>
+<p>— Não é assim tão simples — disse Bento.</p>
+<p>— O que não é simples, Bento?</p>
+<p>— Há negócios que continuam depois que o dinheiro muda de mãos.</p>
+<p>— Isso acontece com qualquer negócio mal encerrado.</p>
+<p>— Não estou falando de dívidas comerciais.</p>
+<p>— Então seja mais claro — pediu Joaquim.</p>
+</blockquote>
+<p>Bento olhou para o anfitrião. Por um instante, pareceu procurar nele alguma possibilidade de amparo. Não encontrou.</p>
+<blockquote>
+<p>— Oito anos — murmurou. — Faz oito anos.</p>
+<p>— Bento, não compreendo aonde pretende chegar.</p>
+<p>— Eu também não sei se consigo chegar a algum lugar.</p>
+<p>— Havia uma mulher — repetiu ele. — E havia um menino.</p>
+</blockquote>
+<p>Não pronunciou os nomes. Talvez ainda não pudesse. Talvez soubesse que, depois de dizê-los, não haveria como fingir que falava de outra coisa.</p>
+<blockquote>
+<p>— Não foi uma decisão tomada por um homem apenas — continuou. — Houve gente que decidiu, gente que providenciou, gente que recebeu. E houve quem soubesse muito bem o que estava acontecendo.</p>
+<p>— O senhor está acusando os presentes?</p>
+<p>— Estou falando de mim também.</p>
+</blockquote>
+</section>
+
+<!-- CAPÍTULO 12 -->
+<section aria-labelledby="cap12">
+<h2 id="cap12">Capítulo 12 — Conversas atrás das portas</h2>
+<p>O intervalo entre os pratos ofereceu aos homens a oportunidade de se afastar da mesa. Não foram procurar apenas ar fresco ou charutos: queriam medir o alcance do que Bento havia começado a dizer.</p>
+<h3>1. O livro</h3>
+<p>Antônio Vanderlei entrou primeiro no fumante. Evaristo Gouveia apareceu pouco depois.</p>
+<blockquote>
+<p>— O livro continua seguro?</p>
+<p>— O senhor é quem deveria saber.</p>
+<p>— Sei onde está o original.</p>
+<p>— E sabe quem mais sabe?</p>
+<p>— Pouquíssimas pessoas.</p>
+</blockquote>
+<h3>2. A suspeita</h3>
+<p>Na varanda, Joaquim Cavalcante e Francisco Albuquerque permaneciam afastados dos demais.</p>
+<blockquote>
+<p>— O senhor percebeu como Feliciana nos observa?</p>
+<p>— Percebi que trabalha. Como sempre trabalhou.</p>
+<p>— Ela está diferente.</p>
+<p>— Uma mulher pode mudar de comportamento sem que isso represente uma ameaça.</p>
+</blockquote>
+<h3>3. O que não se desfaz</h3>
+<p>Bento encontrou Raimundo Lessa no corredor, perto da porta que dava acesso à escadaria lateral.</p>
+<blockquote>
+<p>— Eu tentei corrigir aquilo.</p>
+<p>— O senhor já disse isso.</p>
+<p>— E o senhor sabe que é verdade.</p>
+<p>— Sei que o senhor se arrepende. Não é a mesma coisa.</p>
+</blockquote>
+<h3>4. O que Celso sabe</h3>
+<p>Celso Maranhão esperou Bento junto à escadaria.</p>
+<blockquote>
+<p>— O livro ainda existe?</p>
+<p>— Quem lhe falou do livro?</p>
+<p>— Ninguém.</p>
+<p>— Não minta para mim.</p>
+</blockquote>
+</section>
+
+<!-- CAPÍTULO 13 -->
+<section aria-labelledby="cap13">
+<h2 id="cap13">Capítulo 13 — O nome pronunciado à mesa</h2>
+<p>Bento olhou para a cadeira vazia e disse, com a voz baixa de quem atravessa uma porta que não sabe mais encontrar aberta: "Ele tinha nome. Tomás."</p>
+<p>E o nome atravessou a sala sem precisar ser repetido.</p>
+<p>Feliciana acabava de recolher um prato quando percebeu que Bento não havia tocado no seu. Ele permanecia sentado, com as mãos apoiadas junto aos talheres.</p>
+<blockquote>
+<p>— Não pronuncie esse nome.</p>
+<p>— O senhor não tem o direito de decidir isso — disse Bento.</p>
+<p>— Nesta casa, tenho.</p>
+<p>— Não sobre ele.</p>
+</blockquote>
+<p>Bento olhou uma última vez para os homens. A voz saiu baixa, quase sem ar.</p>
+<blockquote>
+<p>— Tomás.</p>
+</blockquote>
+<p>Feliciana sentiu o corpo enrijecer. Não deixou cair a travessa. Não chamou ninguém. Durante oito anos, aquele nome fora pronunciado em cartas, lembranças e pensamentos que ela não podia compartilhar com os homens daquela casa. Agora chegava à mesa onde o destino do menino havia sido decidido.</p>
+<figure>
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><rect fill='%23253a32' width='800' height='400'/><text x='400' y='200' fill='%23d9ef9c' font-family='serif' font-size='22' text-anchor='middle'>Ilustração 7 — O nome que atravessou a sala</text></svg>" alt="Gravura em preto e branco de uma taça de vinho em primeiro plano e, ao fundo, silhuetas de homens à mesa; à direita, uma mulher negra de pé segurando uma travessa.">
+<figcaption>Ilustração gerada por IA sob curadoria do autor, 2026. Peça ficcional; não constitui documentação histórica. CC BY-NC-ND 4.0.</figcaption>
+</figure>
+</section>
+
+<!-- CAPÍTULO 14 -->
+<section aria-labelledby="cap14">
+<h2 id="cap14">Capítulo 14 — A mulher que conhecia os homens</h2>
+<p>Feliciana permaneceu junto à porta da cozinha, observando os homens que haviam participado da separação de seu filho, não para acusá-los indiscriminadamente, mas para compreender o que cada um fizera, omitira ou pretendia fazer depois daquela noite.</p>
+<p>O nome ainda parecia ocupar a sala. <strong>Tomás.</strong></p>
+<p>Feliciana olhou para Joaquim Cavalcante. Conhecia a maneira como ele chamava os empregados, o modo como interrompia uma conversa e o silêncio que exigia quando entrava numa sala. Recordava a noite em que lhe comunicara a separação de Tomás.</p>
+<p>Antônio Vanderlei era diferente. Seu nome aparecia em mais de um papel que chegara às mãos dela.</p>
+<p>Francisco Albuquerque lhe inspirava outro tipo de cautela. Era homem de palavras. Sabia falar de ordem, de prudência e de interesse público.</p>
+<p>Feliciana voltou os olhos para Luís Carneiro. O médico. Era o homem que conhecia o corpo dos outros e cuja assinatura aparecia associada a um documento que justificara uma decisão sobre Tomás.</p>
+<p>Seu avental não era um arquivo organizado como o de um escritório. Era o lugar possível para conservar o que, de outro modo, poderia desaparecer.</p>
+<blockquote>
+<p>— A senhora ouviu o que disseram?</p>
+<p>— Ouvi o bastante.</p>
+<p>— E agora?</p>
+<p>— Agora é preciso saber o que cada um fez.</p>
+</blockquote>
+</section>
+
+<!-- CAPÍTULO 15 -->
+<section aria-labelledby="cap15">
+<h2 id="cap15">Capítulo 15 — O reconhecimento de Celso</h2>
+<p>Celso Maranhão pousou a xícara sobre a mesa e disse o que até então escutara sem interromper: "Em maio de 1872, descobri que o livro não havia desaparecido."</p>
+<p>Os homens compreenderam que o assunto nunca fora encerrado.</p>
+<blockquote>
+<p>— Em maio de 1872, descobri que o livro não havia desaparecido.</p>
+<p>— O senhor não sabe onde ele está — disse Evaristo.</p>
+<p>— Sei que existe. Para mim, já é suficiente.</p>
+<p>— Não é a mesma coisa.</p>
+<p>— Não. Não é. Mas basta para compreender que o assunto nunca foi encerrado.</p>
+</blockquote>
+<p>A declaração acrescentava uma informação importante: em maio de 1872, a existência dos registros já era conhecida por alguém que não integrava a operação original.</p>
+</section>
+
+<!-- CAPÍTULO 16 -->
+<section aria-labelledby="cap16">
+<h2 id="cap16">Capítulo 16 — O caderno sobre a mesa</h2>
+<p>A porta da cozinha se abriu. Feliciana apareceu com um volume embrulhado num pano escuro. Não trazia uma bandeja nem procurava recolher pratos. Caminhava como quem já não pretendia pedir licença para falar do próprio filho.</p>
+<blockquote>
+<p>— Feliciana, o que significa isso?</p>
+<p>— Na despensa. Estava escondido atrás de uma saca de farinha.</p>
+<p>— Esse não é o original.</p>
+<p>— Então o senhor conhece o original?</p>
+</blockquote>
+<p>Evaristo não respondeu.</p>
+<blockquote>
+<p>— É um livro de contas — respondeu Feliciana. — Tem nomes, datas e valores. Alguns eu reconheço. Outros ainda preciso que alguém me explique.</p>
+<p>— A senhora não tem autorização para trazer documentos particulares à mesa.</p>
+<p>— Não pedi autorização para encontrá-los.</p>
+<p>— São documentos que não lhe dizem respeito.</p>
+<p>— Meu filho aparece neles.</p>
+</blockquote>
+<p>A frase encerrou a tentativa de Joaquim de reduzir o assunto a uma questão de propriedade.</p>
+<blockquote>
+<p>— A senhora está esquecendo sua condição nesta casa.</p>
+<p>— Não esqueci. Foi nesta casa que meu filho me foi tirado. Foi nesta casa que aprendi a escutar sem ser ouvida. Foi nesta casa que encontrei os papéis que os senhores acreditavam ter escondido.</p>
+</blockquote>
+<figure>
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><rect fill='%23253a32' width='800' height='400'/><text x='400' y='200' fill='%23d9ef9c' font-family='serif' font-size='22' text-anchor='middle'>Ilustração 8 — A contabilidade que virou acusação</text></svg>" alt="Gravura em preto e branco de um livro de capa escura aberto sobre uma mesa de jantar, iluminado por velas, com silhuetas de homens ao fundo.">
+<figcaption>Ilustração gerada por IA sob curadoria do autor, 2026. Peça ficcional; não constitui documentação histórica. CC BY-NC-ND 4.0.</figcaption>
+</figure>
+</section>
+
+<!-- CAPÍTULO 17 -->
+<section aria-labelledby="cap17">
+<h2 id="cap17">Capítulo 17 — A leitura dos registros</h2>
+<p>O livro permanecia aberto sobre a mesa. Feliciana apontou para uma linha: "Este nome. Tomás. Esta data. 1865. E este número."</p>
+<blockquote>
+<p>— Um lançamento isolado não demonstra a operação inteira — disse José.</p>
+<p>— Então examine os outros — respondeu Feliciana.</p>
+<p>— A letra é minha. — declarou Evaristo.</p>
+<p>— O senhor confirma a autoria? — perguntou Celso.</p>
+<p>— Confirmo a caligrafia. Não confirmo a interpretação que estão dando ao registro.</p>
+</blockquote>
+<p>Feliciana voltou-se para Raimundo Lessa.</p>
+<blockquote>
+<p>— O senhor levou Tomás?</p>
+<p>— Fiz um serviço de transporte.</p>
+<p>— Levou meu filho?</p>
+<p>— Não fui eu quem decidiu a transferência.</p>
+<p>— Mas foi o senhor quem o transportou?</p>
+<p>— Sim.</p>
+</blockquote>
+<p>A palavra alterou a posição dos homens à mesa. Já não se discutia apenas o sentido de um lançamento. Um dos envolvidos confirmara uma etapa concreta da operação.</p>
+<blockquote>
+<p>— Para os senhores, talvez fosse uma conta. Para mim, era meu filho.</p>
+</blockquote>
+</section>
+
+<!-- CAPÍTULO 18 -->
+<section aria-labelledby="cap18">
+<h2 id="cap18">Capítulo 18 — O delegado e a versão oficial</h2>
+<p>Na manhã de 15 de dezembro, o delegado Amaro de Mendonça chegou ao sobrado e encontrou três homens mortos, oito sobreviventes e uma narrativa que já começava a se organizar antes que os fatos fossem esclarecidos.</p>
+<p>Bento Figueira estava caído próximo à passagem para a cozinha. Manuel Rego Barros permanecia junto à cadeira, com o corpo inclinado para um lado. Evaristo Gouveia estava no chão, encostado à parede.</p>
+<p>O Dr. Teodoro Silva chegou pouco depois das dez. Ao terminar o exame, chamou Amaro para um canto.</p>
+<blockquote>
+<p>— Não posso determinar a causa dessas mortes apenas com este exame.</p>
+<p>— O senhor suspeita de alguma coisa?</p>
+<p>— Há circunstâncias que merecem investigação. Mas não seria responsável afirmar que houve envenenamento sem exame adequado.</p>
+</blockquote>
+<p>As respostas dos sobreviventes tinham diferenças, mas uma coincidência chamava a atenção: nenhum deles sabia onde estava Feliciana.</p>
+<blockquote>
+<p>— Sei que a senhora Feliciana não fez aquilo que estão dizendo. — disse Inácio.</p>
+</blockquote>
+<p>Ao final da tarde, o registro foi redigido de maneira a favorecer a hipótese de mortes sem intervenção de terceiros e a indicar Feliciana como pessoa a ser localizada e ouvida.</p>
+<blockquote>
+<p>— Isso não responde ao que aconteceu — disse Teodoro.</p>
+<p>— Não — respondeu Amaro.</p>
+<p>— Então por que assina?</p>
+<p>— Porque há homens nesta casa que já decidiram o que querem que seja escrito.</p>
+</blockquote>
+</section>
+
+<!-- CAPÍTULO 19 -->
+<section aria-labelledby="cap19">
+<h2 id="cap19">Capítulo 19 — O livro de contas</h2>
+<p>O volume encontrado por Feliciana não era o original. Era uma cópia preparada por ordem de Evaristo Gouveia em 1868 e escondida na despensa do Sobrado dos Cavalcante.</p>
+<p>A distinção era importante. O original permanecia em Goiana, guardado em um cofre. A cópia fora feita para preservar parte dos registros caso o primeiro volume fosse perdido, confiscado ou se tornasse inacessível.</p>
+<p>O livro não era um documento público. Não substituía o instrumento lavrado em cartório, nem as anotações financeiras mantidas separadamente. Era um registro privado de controle entre os envolvidos.</p>
+<p>Foi esse volume que ela levou à mesa em 14 de dezembro de 1873. O original permaneceu em Goiana. A cópia, porém, já havia cumprido uma função que Evaristo não previra: permitira que Feliciana conhecesse parte da estrutura que havia separado sua família.</p>
+</section>
+
+<!-- CAPÍTULO 20 -->
+<section aria-labelledby="cap20">
+<h2 id="cap20">Capítulo 20 — O destino de Feliciana</h2>
+<p>Feliciana deixou o Sobrado dos Cavalcante antes do amanhecer de 15 de dezembro de 1873.</p>
+<p>Não levou dinheiro, joias ou roupas que não pudesse carregar. Levou um bornal com a carta de Tomás, a cópia da correspondência de Raimundo, a carta de Antônio encontrada por Cecília e os papéis que reunira durante sua investigação.</p>
+<p>Não levou o caderno de contas. O volume havia sido colocado sobre a mesa durante a reunião. Depois da discussão, os homens se dispersaram. Feliciana não o recuperou antes de sair.</p>
+<blockquote>
+<p>— Trouxe os papéis?</p>
+<p>— Os que estavam comigo.</p>
+<p>— E o livro?</p>
+<p>— Ficou na casa.</p>
+<p>— Tem certeza?</p>
+<p>— Não sei onde está agora. Coloquei-o sobre a mesa. Depois, os homens começaram a sair e eu não consegui recuperá-lo.</p>
+</blockquote>
+<p>Elias a esperava próximo ao cruzamento. Caminharam por algum tempo antes de encontrar abrigo.</p>
+<blockquote>
+<p>— Ele está perto do Recife — disse.</p>
+<p>— A carta indica isso.</p>
+<p>— Não sei onde exatamente.</p>
+<p>— Vamos procurar.</p>
+<p>— E se ele não quiser me ver?</p>
+<p>— A senhora não pode saber disso antes de encontrá-lo.</p>
+</blockquote>
+</section>
+
+<!-- CAPÍTULO 21 -->
+<section aria-labelledby="cap21">
+<h2 id="cap21">Capítulo 21 — Os onze destinos</h2>
+<p>Na manhã de 15 de dezembro de 1873, oito homens deixaram o Sobrado dos Cavalcante. Três permaneceram mortos na casa: Bento Figueira, Manuel Rego Barros e Evaristo Gouveia.</p>
+<p>O tempo não os trataria da mesma maneira.</p>
+<p><strong>Joaquim Cavalcante</strong> continuou a administrar suas propriedades. Henrique, seu filho, assumiu gradualmente parte da administração. Cecilia permaneceu na propriedade. Foi ela quem conservou uma carta de Feliciana encontrada na cozinha. Em 1885, quando a campanha abolicionista já ocupava as conversas públicas, Cecilia leu novamente o documento.</p>
+<p><strong>Antônio Vanderlei</strong> prosperou. Expandiu seus negócios e manteve relações comerciais com proprietários rurais. Morreu em 1896, deixando patrimônio considerável e uma gaveta de documentos que permaneceu fechada durante anos.</p>
+<p><strong>Francisco Albuquerque</strong> continuou na política. Durante a noite do banquete, retirara a chave do cofre de Evaristo. O gesto foi mencionado posteriormente e passou a integrar as lembranças sobre aquela reunião. Mas o que se sabia era limitado.</p>
+<p><strong>Luís Carneiro</strong> continuou a exercer a medicina. Sua filha Helena cresceu cercada por livros e documentos. Luís morreu sem deixar uma explicação completa sobre o papel que desempenhara.</p>
+<p><strong>José Tavares</strong> continuou na advocacia. Sua filha Clara encontrou parte dos papéis entre os documentos da família.</p>
+<p><strong>Raimundo Lessa</strong> manteve seus negócios de transporte. Em 1878, sua esposa Carlota deixou a casa com os filhos. Morreu em 1892.</p>
+<p><strong>Álvaro Siqueira</strong> continuou como exportador. Sua filha Margarida aproximou-se de círculos abolicionistas. Morreu em 1899.</p>
+<p><strong>Celso Maranhão</strong> procurou modernizar seus negócios. Morreu em 1905.</p>
+<p>Eram três questões distintas: a chave, o original e a cópia. Confundi-las seria transformar uma sequência de acontecimentos incompletamente documentada numa certeza que não existia.</p>
+</section>
+
+<!-- CAPÍTULO 22 -->
+<section aria-labelledby="cap22">
+<h2 id="cap22">Capítulo 22 — A investigação esquecida</h2>
+<p>Em outubro de 1908, Helena Carneiro encontrou os documentos que mudariam a maneira como compreendia a história de sua família.</p>
+<p>No fundo de uma caixa de madeira, encontrou um conjunto de papéis amarrados por uma fita já ressecada. Na tampa, estava escrito o nome de seu pai: Luís Carneiro.</p>
+<figure>
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><rect fill='%23253a32' width='800' height='400'/><text x='400' y='200' fill='%23d9ef9c' font-family='serif' font-size='22' text-anchor='middle'>Ilustração 9 — A fita ressecada do sótão</text></svg>" alt="Gravura em preto e branco de uma mulher jovem segurando uma caixa de madeira com papéis amarrados por fita, em um sótão com estantes de livros e luz entrando por uma claraboia.">
+<figcaption>Ilustração gerada por IA sob curadoria do autor, 2026. Peça ficcional; não constitui documentação histórica. CC BY-NC-ND 4.0.</figcaption>
+</figure>
+<p>O primeiro documento era uma cópia de um instrumento datado de 1865. Registrava a transferência de um rapaz chamado Tomás. Ao lado, reconheceu a assinatura do pai.</p>
+<p>Entre os papéis, Helena encontrou uma referência a uma mulher chamada Feliciana e a um filho chamado Tomás. Não era ainda uma história completa. Era uma indicação de que a transferência registrada em 1865 havia separado uma mãe de seu filho.</p>
+<p>Em março de 1909, depois de meses de procura, recebeu uma informação que permitiu avançar. Um contato ligado ao comércio local confirmou a existência de um homem chamado Tomás, que vivia nos arredores do Recife e conservava papéis relacionados à própria família.</p>
+</section>
+
+<!-- CAPÍTULO 23 -->
+<section aria-labelledby="cap23">
+<h2 id="cap23">Capítulo 23 — O encontro de Helena e Tomás</h2>
+<p>Helena encontrou Tomás numa tarde de março de 1909, numa casa modesta nos arredores do Recife.</p>
+<p>A casa tinha paredes caiadas, uma pequena varanda e um quintal onde crescia uma mangueira. Sobre uma mesa, perto da janela, estavam alguns livros, papéis e um tinteiro.</p>
+<figure>
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><rect fill='%23253a32' width='800' height='400'/><text x='400' y='200' fill='%23d9ef9c' font-family='serif' font-size='22' text-anchor='middle'>Ilustração 10 — O filho que voltou</text></svg>" alt="Gravura em preto e branco do interior modesta de uma casa, com mesa de madeira, cadeiras, livros, um tinteiro e uma janela aberta para um quintal com mangueira.">
+<figcaption>Ilustração gerada por IA sob curadoria do autor, 2026. Peça ficcional; não constitui documentação histórica. CC BY-NC-ND 4.0.</figcaption>
+</figure>
+<blockquote>
+<p>— A senhora é Helena Carneiro?</p>
+<p>— Sou. Recebi sua mensagem.</p>
+<p>— Agradeço por ter aceitado conversar comigo.</p>
+</blockquote>
+<p>Tomás examinou os papéis sem tocá-los.</p>
+<blockquote>
+<p>— Eu conheço essa história.</p>
+<p>— Minha intenção não é pedir que o senhor confirme o que eu gostaria de encontrar. Quero saber o que aconteceu.</p>
+<p>— Então é melhor começar pelo que minha mãe me contou.</p>
+</blockquote>
+<p>Falou da separação, das propriedades pelas quais passara e das pessoas que haviam decidido seu destino. Explicou que fora retirado da mãe quando tinha treze anos e que, durante muito tempo, não soubera onde ela estava.</p>
+<p>Tomás falou do reencontro em 1877 e dos anos que vivera ao lado da mãe. Contou que Feliciana não conseguia ler fluentemente, mas reconhecia nomes, números e datas. Por isso, quando decidiu organizar sua memória, ditava os acontecimentos e ele os registrava.</p>
+<blockquote>
+<p>— Minha mãe queria que ficasse escrito o que tinha acontecido — explicou. — Não queria que os nomes desaparecessem.</p>
+</blockquote>
+<p>Tomás retirou um maço de papéis amarrados com uma fita de algodão. Colocou-o sobre a mesa.</p>
+<blockquote>
+<p>— Isto ficou comigo.</p>
+<p>— O que contém?</p>
+<p>— O manuscrito de minha mãe, a carta que ela deixou para quem encontrasse os papéis e a carta que escrevi para ela. Há também outros documentos que conseguimos conservar.</p>
+</blockquote>
+<blockquote>
+<p>À pessoa que encontrar estes papéis,</p>
+<p>Meu nome é Feliciana. Sou mãe de Tomás. Escrevi este relato para que a separação de uma família e os negócios que a provocaram não desapareçam com a memória de quem os viveu.</p>
+<p>Não peço que acredite sem examinar. Peço que leia, compare os documentos e procure distinguir o que presenciei daquilo que soube por outras pessoas.</p>
+<p>Não escrevi para pedir vingança. Escrevi para que a memória não dependesse apenas daqueles que tinham poder para registrar a própria versão.</p>
+<p>Feliciana.</p>
+</blockquote>
+<blockquote>
+<p>— O senhor quer que tudo isso seja publicado?</p>
+<p>— Quero que seja lido. O que farão depois precisa ser pensado. Não quero que a história de minha mãe vire apenas uma acusação contra homens mortos. Quero que se saiba o que fizeram com ela e comigo.</p>
+</blockquote>
+</section>
+
+<!-- CAPÍTULO 24 -->
+<section aria-labelledby="cap24">
+<h2 id="cap24">Capítulo 24 — O que restou dos onze</h2>
+<p>Os filhos não herdaram automaticamente as responsabilidades dos pais. Herdaram propriedades, documentos, nomes e, em alguns casos, perguntas que ninguém lhes ensinara a formular.</p>
+<p>Os onze homens não deixaram o mesmo tipo de herança. Alguns deixaram propriedades. Outros, correspondências, contratos, dívidas e arquivos particulares. Três deixaram famílias que precisaram lidar com as consequências de mortes ocorridas durante uma ceia cuja causa não fora esclarecida.</p>
+<p>O livro original de contas continuava sem destino conhecido. A chave retirada por Francisco durante o banquete também permanecia sem localização confirmada.</p>
+<p>A cópia parcial apresentada por Feliciana teve outro percurso. Foi colocada sobre a mesa em 14 de dezembro de 1873 e vista pelos homens reunidos. Na manhã seguinte, Amaro registrou que nenhum livro fora apresentado.</p>
+<p>A lacuna não podia ser preenchida por uma narrativa conveniente.</p>
+<blockquote>
+<p>Sua responsabilidade era preservar os documentos, indicar sua procedência e permitir que fossem examinados. Era essa a decisão que tomou em 12 de março de 1910.</p>
+</blockquote>
+</section>
+
+<!-- EPÍLOGO -->
+<section aria-labelledby="epilogo">
+<h2 id="epilogo">Epílogo — O que os papéis não esqueceram</h2>
+<p>Recife, 12 de março de 1910.</p>
+<p>Helena Carneiro colocou duas pastas sobre a mesa.</p>
+<p>A primeira continha os documentos encontrados em outubro de 1908 no arquivo de seu pai, Luís Carneiro. A segunda pasta reunia os documentos que recebera de Tomás em março de 1909.</p>
+<p>Helena não misturou os conjuntos. Sabia que tinham procedências distintas e que essa diferença precisava permanecer visível.</p>
+<blockquote>
+<p>Senhor.</p>
+<p>Encaminho-lhe cópias e transcrições de documentos relativos a acontecimentos ocorridos em Pernambuco entre 1865 e 1873, acompanhadas de uma relação de procedência e identificação das peças.</p>
+<p>Não disponho do livro original de contas mencionado nos papéis, nem da cópia parcial que Feliciana apresentou durante a reunião de dezembro de 1873. O destino de ambos permanece sem esclarecimento.</p>
+<p>Não afirmo que o material encerre a investigação. Entrego-o para que possa ser examinado, comparado e, se houver fundamento, divulgado.</p>
+<p>Atenciosamente,<br>Helena Carneiro.</p>
+</blockquote>
+<p>Na capa da pasta destinada ao escritor, Helena escreveu:</p>
+<blockquote>
+<p>Feliciana e Tomás — documentos e memória, 1865–1880.</p>
+<p>Procedência identificada. Lacunas preservadas.</p>
+</blockquote>
+<p>Não era o fim de todas as perguntas. Era o começo de outra leitura.</p>
+</section>
+
+<!-- POSFÁCIO -->
+<section aria-labelledby="posfacio">
+<h2 id="posfacio">Posfácio — O banquete que nunca terminou</h2>
+<p>A chuva voltou em 1874. Não como bênção. Não como redenção. Voltou como a chuva costuma voltar em Pernambuco: molhando o que já estava molhado, apodrecendo o que já estava podre, revelando o que já estava exposto.</p>
+<p>Mas o banquete, o banquete nunca terminou.</p>
+<p>Apenas mudou de mesa. Mudou de sobrado. Mudou de sobrenome.</p>
+<figure>
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><rect fill='%23253a32' width='800' height='400'/><text x='400' y='200' fill='%23d9ef9c' font-family='serif' font-size='22' text-anchor='middle'>Ilustração 11 — O banquete que nunca terminou</text></svg>" alt="Gravura em preto e branco de uma mulher jovem abrindo um baú antigo cheio de documentos, em um sótão iluminado por luz natural.">
+<figcaption>Ilustração gerada por IA sob curadoria do autor, 2026. Peça ficcional; não constitui documentação histórica. CC BY-NC-ND 4.0.</figcaption>
+</figure>
+<h3>A indústria da separação</h3>
+<p>Nos anos 1990, a historiadora brasileira Maria Helena Machado publicou estudos fundamentais sobre o tráfico interprovincial de escravizados após a Lei Eusébio de Queirós (1850). Demonstrou que, proibido o tráfico transatlântico, os senhores brasileiros voltaram-se para o mercado interno. Milhares de homens, mulheres e crianças do Nordeste foram vendidos para os cafezais do Sudeste. Famílias foram separadas.</p>
+<p>A historiadora chamou esse processo de <strong>indústria da separação</strong>.</p>
+<h3>O livro que ninguém viu abrir</h3>
+<p>Há um objeto neste romance cujo destino final o leitor não conhecerá. E essa não é uma omissão: é uma escolha. O romance recusa deliberadamente essa resposta.</p>
+<p>Dizer com certeza onde está o livro de Evaristo Gouveia seria mentir. Seria produzir uma ficção que se passa por documento. E este romance, desde a primeira página, declarou que não faria isso.</p>
+<h3>Os banquetes de hoje</h3>
+<p>Os sobrados da Zona da Mata ainda existem. Alguns foram transformados em pousadas para turistas europeus. Outros foram abandonados. Outros, ainda, continuam sendo habitações de famílias que carregam os sobrenomes dos antigos senhores.</p>
+<p>O trabalho análogo à escravidão ainda existe. Em 2024, fiscais do trabalho resgataram dezenas de trabalhadores em condições análogas à escravidão em usinas de açúcar no interior de Pernambuco.</p>
+<h3>As Helenas de hoje</h3>
+<p>Helena Carneiro, a mulher que, em 1908, encontrou os documentos do pai e decidiu revelar a verdade, é a personagem mais importante deste romance. Não porque seja a protagonista — a protagonista é Feliciana. Mas porque Helena representa algo que este livro precisa representar: a possibilidade de que a verdade, mesmo quando escondida por gerações, pode ser encontrada.</p>
+<blockquote>
+<p>Porque a verdade, quando é dita, não pode ser desdita. Porque a memória, quando é registrada, não pode ser apagada. Porque o nome, quando é pronunciado, volta.</p>
+</blockquote>
+<p>Os onze homens que se sentaram à mesa do Sobrado dos Cavalcante acreditavam estar dividindo riquezas. Não sabiam que haviam sido convocados para prestar contas à História.</p>
+<p>E a mulher certa chegou. Não em 1873. Não em 1874. Não em 1880. Chegou em 1908, quando Helena encontrou os documentos. Chegou em 1910, quando Helena decidiu revelá-los. Chegou, acima de tudo, em 2026, quando o leitor abre este livro e lê a história de Feliciana.</p>
+</section>
+
+<div class="endmark" aria-label="Fim do manuscrito">✳</div>
+<div class="reading-footer">
+<span>Fim do manuscrito · Edição acessível Entrelinhas</span>
+<span>Texto extraído e reestruturado para leitores de tela</span>
+</div>
+</article>
+</div>
+
+<aside id="player-panel" aria-labelledby="player-title">
+<div class="player-heading">
+<span>Leitura em voz alta</span>
+<div class="sound-icon" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+<h2 id="player-title">Dê voz à história.</h2>
+<p class="player-copy">Ouça a voz do navegador e acompanhe o destaque de cada parágrafo. Use Tab para navegar entre os controles.</p>
+
+<button class="primary" id="play" aria-label="Ouvir o manuscrito do início ou pausar">
+<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2l10 6-10 6V2Z"/></svg>
+<span id="play-label">Ouvir manuscrito</span>
+</button>
+<div class="progress" role="progressbar" aria-label="Progresso da leitura em voz alta" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress"><span id="progress-fill"></span></div>
+<div class="playback-meta">
+<span id="status" role="status" aria-live="polite">Pronto para ouvir</span>
+<span>Voz sintetizada</span>
+</div>
+<div class="player-controls">
+<button class="text-btn" id="stop" disabled>Voltar ao início</button>
+<label for="rate" style="font-size:12px">Velocidade
+<select id="rate"><option value=".8">0,8×</option><option value="1" selected>1×</option><option value="1.25">1,25×</option><option value="1.5">1,5×</option><option value="2">2×</option></select>
+</label>
+</div>
+
+<div class="upload">
+<label for="audio-file">Prefere uma narração gravada?</label>
+<p>Selecione um arquivo de áudio. Ele fica apenas neste dispositivo, sem envio a um servidor.</p>
+<input id="audio-file" type="file" accept="audio/*" aria-describedby="audio-help">
+<p id="audio-help">O áudio importado não destaca o texto: essa sincronização exige marcações de tempo do arquivo.</p>
+<div id="recorded" hidden>
+<audio id="audio" controls preload="metadata" aria-label="Player da narração gravada"></audio>
+<a id="download" class="download" download>Baixar narração ↓</a>
+</div>
+</div>
+<p class="notice">A voz depende do navegador e pode precisar de internet. Recomenda-se Chrome ou Edge para vozes em português do Brasil. Para NVDA no Windows, ative o modo de navegação e use H para saltar entre títulos.</p>
+</aside>
+</div>
+</main>
+
+<footer>
+<span>Entrelinhas · O Banquete dos Onze — edição acessível</span>
+<span>Texto ampliável, contraste, atalhos de teclado e leitura em voz alta.</span>
+</footer>
+
+<script>
+/* ============================================================
+   SELEÇÃO DE BLOCOS FALÁVEIS
+   Inclui parágrafos, itens de citação, títulos e legendas.
+   ============================================================ */
+const blocks = [
+  ...document.querySelectorAll('#text p, #text h2, #text h3, #text figcaption, #text li')
+];
+const totalBlocks = blocks.length;
+let blockIndex = 0;
+
+const play = document.getElementById('play');
+const label = document.getElementById('play-label');
+const stop = document.getElementById('stop');
+const status = document.getElementById('status');
+const panel = document.getElementById('player-panel');
+const rate = document.getElementById('rate');
+const audio = document.getElementById('audio');
+const synth = window.speechSynthesis;
+let running = false, paused = false, generation = 0, objectURL;
+
+/* --- Progresso textual (capítulo atual) --- */
+const progressText = document.getElementById('progress-text');
+function updateProgressText(){
+  // encontra o h2 mais próximo anterior ao bloco atual
+  const current = blocks[blockIndex];
+  if(!current) return;
+  let node = current;
+  while(node && node.tagName !== 'H2') node = node.previousElementSibling;
+  if(node){
+    const title = node.textContent.replace(/^Capítulo\s+\d+\s*[—-]\s*/i,'').slice(0,40);
+    progressText.textContent = title;
+  }
+}
+
+/* --- Vozes: carregamento assíncrono --- */
+let voices = [];
+function loadVoices(){ if(synth) voices = synth.getVoices() || []; }
+loadVoices();
+if(synth && typeof synth.onvoiceschanged !== 'undefined') synth.onvoiceschanged = loadVoices;
+function pickPortugueseVoice(){
+  if(!voices.length) loadVoices();
+  return voices.find(v => v.lang && v.lang.toLowerCase() === 'pt-br')
+      || voices.find(v => v.lang && v.lang.toLowerCase().startsWith('pt'))
+      || null;
+}
+
+/* --- Destaque visual e acessível --- */
+function clearHighlight(){ blocks.forEach(b => b.classList.remove('active')); }
+function scrollIntoViewSafe(el){
+  if(!el) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
+}
+
+/* --- Reset --- */
+function reset(){
+  generation++;
+  if(synth) synth.cancel();
+  running = paused = false; blockIndex = 0;
+  clearHighlight();
+  panel.classList.remove('playing');
+  label.textContent = 'Ouvir manuscrito';
+  stop.disabled = true;
+  document.getElementById('progress-fill').style.width = '0%';
+  document.getElementById('progress').setAttribute('aria-valuenow','0');
+  status.textContent = 'Pronto para ouvir';
+  updateProgressText();
+}
+
+/* --- Fala bloco a bloco --- */
+function speakBlock(token){
+  if(token !== generation) return;
+  if(blockIndex >= totalBlocks){
+    reset(); status.textContent = 'Leitura concluída'; return;
+  }
+  clearHighlight();
+  const el = blocks[blockIndex];
+  el.classList.add('active');
+  scrollIntoViewSafe(el);
+  updateProgressText();
+  const pct = Math.round((blockIndex+1)/totalBlocks*100);
+  status.textContent = `Bloco ${blockIndex+1} de ${totalBlocks}`;
+  document.getElementById('progress-fill').style.width = pct+'%';
+  document.getElementById('progress').setAttribute('aria-valuenow', String(pct));
+
+  const utterance = new SpeechSynthesisUtterance(el.textContent);
+  utterance.lang = 'pt-BR';
+  utterance.rate = Number(rate.value);
+  const voice = pickPortugueseVoice();
+  if(voice) utterance.voice = voice;
+  utterance.onend = () => { if(token === generation){ blockIndex++; speakBlock(token); } };
+  utterance.onerror = () => {
+    if(token !== generation) return;
+    reset();
+    status.textContent = 'Não foi possível usar a voz. Tente uma narração gravada.';
+  };
+  synth.speak(utterance);
+}
+
+/* --- Fallback se não houver TTS --- */
+if(!synth || !('SpeechSynthesisUtterance' in window)){
+  play.disabled = true;
+  status.textContent = 'Voz indisponível neste navegador';
+}
+
+/* --- Play / Pause / Resume --- */
+play.addEventListener('click', () => {
+  if(!running){
+    audio.pause(); synth.cancel();
+    running = true; paused = false; stop.disabled = false;
+    label.textContent = 'Pausar leitura';
+    panel.classList.add('playing');
+    speakBlock(++generation);
+  } else if(paused){
+    synth.resume(); paused = false;
+    label.textContent = 'Pausar leitura';
+    panel.classList.add('playing');
+    status.textContent = `Bloco ${blockIndex+1} de ${totalBlocks}`;
+  } else {
+    synth.pause(); paused = true;
+    label.textContent = 'Continuar leitura';
+    panel.classList.remove('playing');
+    status.textContent = 'Leitura pausada';
+  }
+});
+stop.addEventListener('click', reset);
+rate.addEventListener('change', () => { audio.playbackRate = Number(rate.value); });
+audio.addEventListener('play', () => { if(running) reset(); });
+
+/* --- Upload de áudio local --- */
+document.getElementById('audio-file').addEventListener('change', event => {
+  const file = event.target.files[0]; if(!file) return;
+  reset(); audio.pause();
+  if(objectURL) URL.revokeObjectURL(objectURL);
+  objectURL = URL.createObjectURL(file);
+  audio.src = objectURL;
+  const link = document.getElementById('download');
+  link.href = objectURL; link.download = file.name;
+  document.getElementById('recorded').hidden = false;
+});
+
+/* --- Tamanho da fonte --- */
+let fontSize = 20;
+function resize(delta){
+  fontSize = Math.max(16, Math.min(30, fontSize + delta));
+  document.documentElement.style.setProperty('--reading-size', `${fontSize}px`);
+  document.getElementById('smaller').disabled = fontSize === 16;
+  document.getElementById('larger').disabled = fontSize === 30;
+}
+document.getElementById('smaller').addEventListener('click', () => resize(-2));
+document.getElementById('larger').addEventListener('click', () => resize(2));
+
+/* --- Contraste --- */
+document.getElementById('contrast').addEventListener('click', event => {
+  const enabled = document.body.classList.toggle('contrast');
+  event.currentTarget.setAttribute('aria-pressed', String(enabled));
+});
+
+/* --- Atalho: ir ao sumário --- */
+document.getElementById('skip-toc').addEventListener('click', () => {
+  const toc = document.getElementById('toc-title');
+  scrollIntoViewSafe(toc);
+  toc.setAttribute('tabindex','-1');
+  toc.focus({preventScroll:true});
+});
+
+/* --- Teclado: navegação rápida entre capítulos --- */
+document.addEventListener('keydown', (e) => {
+  // Alt+→ / Alt+← : próximo / anterior capítulo (h2)
+  if(e.altKey && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')){
+    const hs = [...document.querySelectorAll('#text h2')];
+    const y = window.scrollY + 100;
+    let target = null;
+    if(e.key === 'ArrowRight'){
+      target = hs.find(h => h.offsetTop > y) || hs[hs.length-1];
+    } else {
+      target = [...hs].reverse().find(h => h.offsetTop < y - 50) || hs[0];
+    }
+    if(target){ scrollIntoViewSafe(target); target.setAttribute('tabindex','-1'); target.focus({preventScroll:true}); }
+    e.preventDefault();
+  }
+});
+
+/* --- Limpeza ao sair --- */
+window.addEventListener('pagehide', () => {
+  if(synth) synth.cancel();
+  if(objectURL) URL.revokeObjectURL(objectURL);
+});
+
+/* --- Inicialização --- */
+updateProgressText();
+</script>
+</body>
+</html>
