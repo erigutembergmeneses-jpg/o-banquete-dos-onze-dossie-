@@ -2,996 +2,485 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>O Banquete dos Onze — Dossiê Documental | Erigutemberg Meneses</title>
-<meta name="description" content="Pacote documental e histórico complementar ao romance O Banquete dos Onze (2026), de Erigutemberg Meneses. Fac-símile do Manuscrito de Feliciana, Livro de Contas de Evaristo Gouveia e Nota Histórica Expandida.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6f3eb">
+<title>O Banquete dos Onze — Dossiê Documental & Histórico</title>
+<meta name="description" content="Dossiê Documental e Histórico do romance O Banquete dos Onze, de Erigutemberg Meneses. Fac-símile do manuscrito de Feliciana, Livro de Contas de Evaristo Gouveia e Nota Histórica Expandida.">
 <meta name="author" content="Erigutemberg Meneses">
-<meta name="license" content="Creative Commons BY-NC-ND 4.0">
-<meta name="DOI" content="10.xxxx/xxxxx">
+<meta name="keywords" content="ficção histórica; escravidão Brasil; tráfico interprovincial; Pernambuco século XIX; indústria da separação; casa-grande; memória; preservação digital; humanidades digitais">
 
 <!-- Open Graph -->
-<meta property="og:title" content="O Banquete dos Onze — Dossiê Documental">
-<meta property="og:description" content="Fac-símile do Manuscrito de Feliciana, Livro de Contas digitalizado e Nota Histórica Expandida.">
+<meta property="og:title" content="O Banquete dos Onze — Dossiê Documental & Histórico">
+<meta property="og:description" content="Pacote documental complementar ao romance O Banquete dos Onze (2026), com fac-símile, livro de contas e nota histórica expandida.">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
 
-<!-- Fontes (substituíveis por arquivos locais para arquivamento offline) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&family=Caveat:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&display=swap" rel="stylesheet">
 
 <style>
-  :root {
-    --sepia-light: #F5E6C8;
-    --sepia-mid: #E8D5A8;
-    --sepia-dark: #C9A876;
-    --ink: #2B2420;
-    --ink-soft: #4A3F35;
-    --rust: #5B3A29;
-    --rust-light: #8B5A3C;
-    --paper: #FBF4E4;
-    --paper-shadow: rgba(91, 58, 41, 0.15);
-    --accent: #7A2E1F;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Cormorant Garamond', 'IM Fell English', Georgia, serif;
-    background:
-      radial-gradient(ellipse at top, #FBF4E4 0%, #F0E0C0 50%, #E0C89A 100%);
-    color: var(--ink);
-    line-height: 1.7;
-    min-height: 100vh;
-    padding: 2rem 1rem;
-  }
-
-  /* Textura de papel no fundo */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(139, 90, 60, 0.02) 2px, rgba(139, 90, 60, 0.02) 4px),
-      radial-gradient(circle at 20% 30%, rgba(139, 90, 60, 0.05) 0%, transparent 40%),
-      radial-gradient(circle at 80% 70%, rgba(91, 58, 41, 0.04) 0%, transparent 40%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* CABEÇALHO */
-  header.site-header {
-    text-align: center;
-    padding: 3rem 1rem 2rem;
-    border-bottom: 2px solid var(--sepia-dark);
-    margin-bottom: 3rem;
-    position: relative;
-  }
-
-  header.site-header::after {
-    content: '❦';
-    position: absolute;
-    bottom: -0.8rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--paper);
-    padding: 0 1rem;
-    color: var(--rust);
-    font-size: 1.5rem;
-  }
-
-  h1.title {
-    font-family: 'IM Fell English', serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    color: var(--ink);
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
-    font-weight: normal;
-  }
-
-  .subtitle {
-    font-style: italic;
-    font-size: 1.3rem;
-    color: var(--ink-soft);
-    margin-bottom: 1.5rem;
-  }
-
-  .meta-info {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-top: 1rem;
-  }
-
-  .meta-info span { margin: 0 0.5rem; }
-
-  .license-badge {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.4rem 1rem;
-    background: var(--sepia-mid);
-    border: 1px solid var(--sepia-dark);
-    border-radius: 2px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--rust);
-  }
-
-  /* INTRODUÇÃO */
-  .intro {
-    max-width: 780px;
-    margin: 0 auto 3rem;
-    text-align: center;
-    font-size: 1.15rem;
-    font-style: italic;
-    color: var(--ink-soft);
-    padding: 0 1rem;
-  }
-
-  /* GRID DE CARDS */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
-  }
-
-  .card {
-    background: var(--paper);
-    border: 1px solid var(--sepia-dark);
-    border-radius: 3px;
-    padding: 2rem;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 12px var(--paper-shadow);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--rust), var(--rust-light), var(--rust));
-  }
-
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px var(--paper-shadow);
-  }
-
-  .card.expanded {
-    grid-column: 1 / -1;
-    cursor: default;
-  }
-
-  .card-number {
-    font-family: 'IM Fell English', serif;
-    font-size: 0.9rem;
-    color: var(--rust);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-
-  .card h2 {
-    font-family: 'IM Fell English', serif;
-    font-size: 1.8rem;
-    color: var(--ink);
-    margin-bottom: 1rem;
-    font-weight: normal;
-    line-height: 1.3;
-  }
-
-  .card-summary {
-    font-size: 1.1rem;
-    color: var(--ink-soft);
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-
-  .card-hint {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    color: var(--rust);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .card-hint::after {
-    content: '↓';
-    transition: transform 0.3s;
-  }
-
-  .card.expanded .card-hint::after {
-    transform: rotate(180deg);
-  }
-
-  /* CONTEÚDO EXPANDIDO */
-  .card-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.6s ease, margin-top 0.4s ease;
-    margin-top: 0;
-  }
-
-  .card.expanded .card-content {
-    max-height: 20000px;
-    margin-top: 2rem;
-    border-top: 1px dashed var(--sepia-dark);
-    padding-top: 2rem;
-  }
-
-  /* === DOCUMENTO 1: MANUSCRITO === */
-  .manuscript-page {
-    background:
-      linear-gradient(135deg, #F5E6C8 0%, #E8D5A8 50%, #DCC090 100%);
-    padding: 3rem 2.5rem;
-    border: 1px solid var(--sepia-dark);
-    box-shadow:
-      inset 0 0 60px rgba(139, 90, 60, 0.15),
-      0 4px 20px var(--paper-shadow);
-    margin-bottom: 2rem;
-    position: relative;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.15rem;
-    color: var(--ink);
-    line-height: 1.9;
-  }
-
-  /* Manchas de oxidação simuladas */
-  .manuscript-page::before {
-    content: '';
-    position: absolute;
-    top: 10%; right: 5%;
-    width: 80px; height: 60px;
-    background: radial-gradient(ellipse, rgba(139, 90, 60, 0.15) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .manuscript-page::after {
-    content: '';
-    position: absolute;
-    bottom: 15%; left: 8%;
-    width: 120px; height: 40px;
-    background: radial-gradient(ellipse, rgba(91, 58, 41, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .manuscript-header {
-    text-align: center;
-    font-family: 'IM Fell English', serif;
-    font-style: normal;
-    font-size: 1.3rem;
-    letter-spacing: 0.15em;
-    color: var(--rust);
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--sepia-dark);
-  }
-
-  .manuscript-footer {
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-size: 0.8rem;
-    color: var(--ink-soft);
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--sepia-dark);
-    letter-spacing: 0.1em;
-  }
-
-  .manuscript-page p {
-    margin-bottom: 1.2rem;
-    text-align: justify;
-    text-indent: 2rem;
-    position: relative;
-    z-index: 2;
-  }
-
-  .manuscript-page p:first-of-type::first-letter {
-    font-size: 2.5rem;
-    font-family: 'IM Fell English', serif;
-    font-style: normal;
-    float: left;
-    line-height: 1;
-    margin-right: 0.3rem;
-    margin-top: 0.2rem;
-    color: var(--rust);
-  }
-
-  .tomas-note {
-    font-family: 'Caveat', cursive;
-    font-style: normal;
-    color: var(--rust);
-    font-size: 1.3rem;
-    margin: 1.5rem 0;
-    padding: 0.8rem 1.2rem;
-    border-left: 3px solid var(--rust-light);
-    background: rgba(245, 230, 200, 0.4);
-    position: relative;
-    z-index: 2;
-    line-height: 1.5;
-  }
-
-  .tomas-note.margin-left {
-    margin-left: 0;
-    margin-right: auto;
-    max-width: 70%;
-  }
-
-  .tomas-note.margin-right {
-    margin-left: auto;
-    margin-right: 0;
-    max-width: 70%;
-    border-left: none;
-    border-right: 3px solid var(--rust-light);
-    text-align: right;
-  }
-
-  .tomas-note.margin-bottom {
-    margin: 1.5rem auto;
-    max-width: 80%;
-    text-align: center;
-    border-left: none;
-    border-top: 2px dotted var(--rust-light);
-    padding-top: 0.8rem;
-  }
-
-  .tomas-note.center-large {
-    margin: 2rem auto;
-    text-align: center;
-    font-size: 1.5rem;
-    border: none;
-    font-weight: 600;
-  }
-
-  .signature {
-    text-align: right;
-    font-family: 'Caveat', cursive;
-    font-style: normal;
-    font-size: 1.8rem;
-    color: var(--rust);
-    margin-top: 2rem;
-  }
-
-  /* === DOCUMENTO 2: LIVRO DE CONTAS === */
-  .accounts-intro {
-    font-size: 1.05rem;
-    color: var(--ink-soft);
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-
-  .filter-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: var(--sepia-light);
-    border: 1px solid var(--sepia-dark);
-    border-radius: 2px;
-  }
-
-  .filter-bar label {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--rust);
-    align-self: center;
-    margin-right: 0.5rem;
-  }
-
-  .filter-btn {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
-    background: var(--paper);
-    border: 1px solid var(--sepia-dark);
-    color: var(--ink);
-    cursor: pointer;
-    transition: all 0.2s;
-    border-radius: 2px;
-  }
-
-  .filter-btn:hover {
-    background: var(--sepia-mid);
-  }
-
-  .filter-btn.active {
-    background: var(--rust);
-    color: var(--paper);
-    border-color: var(--rust);
-  }
-
-  .accounts-table-wrapper {
-    overflow-x: auto;
-    border: 1px solid var(--sepia-dark);
-    background: var(--paper);
-  }
-
-  .accounts-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-  }
-
-  .accounts-table thead {
-    background: var(--sepia-mid);
-    font-family: 'IM Fell English', serif;
-    font-size: 0.95rem;
-    letter-spacing: 0.05em;
-  }
-
-  .accounts-table th {
-    padding: 0.8rem;
-    text-align: left;
-    border-bottom: 2px solid var(--rust);
-    color: var(--ink);
-  }
-
-  .accounts-table td {
-    padding: 0.7rem 0.8rem;
-    border-bottom: 1px solid var(--sepia-mid);
-    vertical-align: top;
-  }
-
-  .accounts-table tbody tr {
-    transition: background 0.2s;
-  }
-
-  .accounts-table tbody tr:hover {
-    background: var(--sepia-light);
-  }
-
-  .accounts-table .date {
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-    color: var(--rust);
-  }
-
-  .accounts-table .value {
-    font-variant-numeric: tabular-nums;
-    text-align: right;
-    white-space: nowrap;
-    font-weight: 600;
-  }
-
-  .accounts-table .parties {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    color: var(--ink-soft);
-  }
-
-  .legend-box {
-    margin-top: 1.5rem;
-    padding: 1rem 1.2rem;
-    background: var(--sepia-light);
-    border-left: 4px solid var(--rust);
-    font-size: 0.95rem;
-  }
-
-  .legend-box h4 {
-    font-family: 'IM Fell English', serif;
-    color: var(--rust);
-    margin-bottom: 0.8rem;
-    font-weight: normal;
-    letter-spacing: 0.05em;
-  }
-
-  .legend-box dl {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.3rem 1rem;
-  }
-
-  .legend-box dt {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    color: var(--ink);
-    font-size: 0.85rem;
-  }
-
-  .legend-box dd {
-    color: var(--ink-soft);
-    font-size: 0.9rem;
-  }
-
-  /* === DOCUMENTO 3: NOTA HISTÓRICA === */
-  .historical-note {
-    font-size: 1.1rem;
-    color: var(--ink);
-  }
-
-  .historical-note h3 {
-    font-family: 'IM Fell English', serif;
-    font-size: 1.6rem;
-    color: var(--rust);
-    margin: 2rem 0 1rem;
-    font-weight: normal;
-    border-bottom: 1px solid var(--sepia-dark);
-    padding-bottom: 0.3rem;
-  }
-
-  .historical-note h3:first-child {
-    margin-top: 0;
-  }
-
-  .historical-note h4 {
-    font-family: 'IM Fell English', serif;
-    font-size: 1.25rem;
-    color: var(--ink);
-    margin: 1.5rem 0 0.8rem;
-    font-weight: normal;
-    font-style: italic;
-  }
-
-  .historical-note p {
-    margin-bottom: 1rem;
-    text-align: justify;
-  }
-
-  .historical-note blockquote {
-    margin: 1.5rem 0;
-    padding: 1rem 1.5rem;
-    border-left: 3px solid var(--rust);
-    background: var(--sepia-light);
-    font-style: italic;
-    color: var(--ink-soft);
-  }
-
-  .historical-note table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5rem 0;
-    font-size: 1rem;
-  }
-
-  .historical-note table th,
-  .historical-note table td {
-    padding: 0.7rem;
-    border: 1px solid var(--sepia-dark);
-    text-align: left;
-    vertical-align: top;
-  }
-
-  .historical-note table th {
-    background: var(--sepia-mid);
-    font-family: 'IM Fell English', serif;
-    color: var(--rust);
-  }
-
-  .references {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 2px solid var(--sepia-dark);
-  }
-
-  .references h4 {
-    font-family: 'IM Fell English', serif;
-    color: var(--rust);
-    margin-bottom: 1rem;
-  }
-
-  .references ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .references li {
-    padding: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-    font-size: 0.95rem;
-    border-bottom: 1px dotted var(--sepia-mid);
-  }
-
-  .references li::before {
-    content: '❧';
-    position: absolute;
-    left: 0;
-    color: var(--rust);
-  }
-
-  /* RODAPÉ */
-  footer.site-footer {
-    text-align: center;
-    padding: 3rem 1rem 2rem;
-    border-top: 2px solid var(--sepia-dark);
-    margin-top: 4rem;
-    position: relative;
-  }
-
-  footer.site-footer::before {
-    content: '❦';
-    position: absolute;
-    top: -0.8rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--paper);
-    padding: 0 1rem;
-    color: var(--rust);
-    font-size: 1.5rem;
-  }
-
-  footer p {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    margin: 0.5rem 0;
-    letter-spacing: 0.05em;
-  }
-
-  footer a {
-    color: var(--rust);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--rust);
-  }
-
-  footer a:hover { color: var(--accent); }
-
-  .doi-box {
-    display: inline-block;
-    margin: 1rem 0;
-    padding: 0.8rem 1.5rem;
-    background: var(--sepia-light);
-    border: 1px solid var(--sepia-dark);
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-  }
-
-  /* RESPONSIVO */
-  @media (max-width: 600px) {
-    body { padding: 1rem 0.5rem; }
-    .manuscript-page { padding: 2rem 1.5rem; font-size: 1.05rem; }
-    .tomas-note { font-size: 1.15rem; max-width: 100% !important; }
-    .card { padding: 1.5rem; }
-    .accounts-table { font-size: 0.9rem; }
-    .accounts-table th, .accounts-table td { padding: 0.5rem; }
-  }
-
-  /* Acessibilidade */
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; }
-  }
-
-  .card:focus-visible {
-    outline: 3px solid var(--rust);
-    outline-offset: 3px;
-  }
+:root{
+  --paper:#f6f3eb;
+  --ink:#253a32;
+  --muted:#63736a;
+  --line:#d8ddd1;
+  --accent:#d9ef9c;
+  --panel:#eaeede;
+  --highlight:#698532;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"DM Sans",sans-serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--highlight);outline-offset:4px;border-radius:2px}
+
+/* --- Header --- */
+header{
+  max-width:1100px;
+  margin:auto;
+  padding:28px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--line);
+  gap:20px;
+}
+.brand{
+  text-decoration:none;
+  font-family:"Literata",serif;
+  font-size:26px;
+  letter-spacing:-1px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.brand svg{width:28px;height:28px}
+.header-note{
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* --- Main --- */
+main{max-width:1100px;margin:auto;padding:56px 6% 80px}
+
+/* --- Hero --- */
+.hero{padding-bottom:48px;border-bottom:1px solid var(--line);margin-bottom:48px}
+.eyebrow{
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--muted);
+  margin-bottom:18px;
+}
+.eyebrow:before{content:"";width:7px;height:7px;background:var(--highlight);border-radius:50%}
+h1{
+  font-family:"Literata",serif;
+  font-weight:400;
+  font-size:clamp(36px,5.5vw,64px);
+  line-height:1.1;
+  letter-spacing:-.045em;
+  margin:0 0 18px;
+}
+.subtitle{
+  font-size:clamp(16px,2vw,19px);
+  color:var(--muted);
+  line-height:1.7;
+  margin:0;
+  max-width:640px;
+}
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 22px;
+  margin-top:24px;
+  font-size:13px;
+  color:var(--muted);
+}
+.meta span{display:inline-flex;align-items:center;gap:6px}
+
+/* --- Seções --- */
+section{margin-bottom:56px}
+h2{
+  font-family:"Literata",serif;
+  font-weight:400;
+  font-size:clamp(26px,3.4vw,36px);
+  letter-spacing:-.03em;
+  line-height:1.2;
+  margin:0 0 8px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+h3{
+  font-family:"Literata",serif;
+  font-weight:500;
+  font-size:clamp(19px,2.4vw,23px);
+  letter-spacing:-.02em;
+  margin:28px 0 10px;
+}
+p{margin:0 0 16px;font-size:16px}
+.lead{font-size:18px;color:var(--muted)}
+
+/* --- Cards (documentos) --- */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:24px;
+}
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-top:3px solid var(--ink);
+  border-radius:4px;
+  padding:24px 22px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.card .num{
+  font-family:"Literata",serif;
+  font-size:28px;
+  color:#ced5c4;
+  line-height:1;
+  letter-spacing:-1px;
+}
+.card h3{margin:0;font-size:19px}
+.card p{margin:0;font-size:14px;color:var(--muted);line-height:1.65}
+.card .tag{
+  align-self:flex-start;
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:var(--highlight);
+  background:rgba(105,133,50,.1);
+  padding:4px 8px;
+  border-radius:3px;
+  margin-top:auto;
+}
+
+/* --- Destaque Leitor Acessível --- */
+.reader-cta{
+  background:var(--ink);
+  color:#fff;
+  border-radius:6px;
+  padding:36px 32px;
+  margin-top:8px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:28px;
+  align-items:center;
+}
+.reader-cta h2{
+  color:#fff;
+  border-bottom-color:rgba(255,255,255,.2);
+  margin-bottom:12px;
+}
+.reader-cta p{color:#d9e0d4;margin:0 0 8px;font-size:15px}
+.reader-cta .features{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:14px;
+}
+.reader-cta .features span{
+  font-size:11px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:#d9ef9c;
+  border:1px solid rgba(217,239,156,.4);
+  border-radius:20px;
+  padding:4px 10px;
+}
+.cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--accent);
+  color:var(--ink);
+  font-weight:700;
+  font-size:16px;
+  padding:16px 26px;
+  border-radius:4px;
+  text-decoration:none;
+  transition:transform .2s,background .2s;
+  white-space:nowrap;
+}
+.cta-btn:hover{background:#e8f5b8;transform:translateY(-2px)}
+.cta-btn:active{transform:translateY(0)}
+.cta-btn svg{width:18px;height:18px}
+
+/* --- Tabela --- */
+.table-wrap{overflow-x:auto;margin-top:16px;border:1px solid var(--line);border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--panel);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+td code{background:var(--panel);padding:2px 6px;border-radius:3px;font-size:12.5px}
+
+/* --- Citação --- */
+blockquote{
+  font-family:"Literata",serif;
+  font-size:18px;
+  line-height:1.8;
+  margin:24px 0;
+  padding:20px 24px;
+  border-left:4px solid var(--highlight);
+  background:var(--panel);
+  border-radius:0 4px 4px 0;
+  color:var(--ink);
+}
+blockquote footer{
+  display:block;
+  margin-top:10px;
+  font-family:"DM Sans",sans-serif;
+  font-size:13px;
+  color:var(--muted);
+  font-style:normal;
+}
+
+/* --- Links inline --- */
+.inline-link{
+  color:var(--highlight);
+  text-decoration:underline;
+  text-underline-offset:3px;
+  font-weight:600;
+}
+
+/* --- Footer --- */
+footer{
+  border-top:1px solid var(--line);
+  max-width:1100px;
+  margin:auto;
+  padding:28px 6%;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:16px;
+  color:var(--muted);
+  font-size:13px;
+}
+footer a{text-decoration:underline;text-underline-offset:3px}
+
+/* --- Responsivo --- */
+@media(max-width:720px){
+  header{padding:20px 6%}
+  .header-note{display:none}
+  main{padding:36px 6% 60px}
+  .reader-cta{grid-template-columns:1fr;padding:28px 22px}
+  .cta-btn{width:100%;justify-content:center}
+  .hero{padding-bottom:36px;margin-bottom:36px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{transition:none!important;animation:none!important}
+}
 </style>
 </head>
 <body>
 
-<div class="container">
+<header>
+  <a class="brand" href="index.html" aria-label="O Banquete dos Onze, página inicial do Dossiê">
+    <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <path d="M3 5c5-1 8 0 11 3 3-3 6-4 11-3v18c-5-1-8 0-11 2-3-2-6-3-11-2V5Z" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M14 8v17" stroke="currentColor" stroke-width="1.5"/>
+    </svg>
+    banquete<span style="color:#799154">.</span>
+  </a>
+  <span class="header-note">Dossiê Documental &amp; Histórico</span>
+</header>
 
-  <!-- CABEÇALHO -->
-  <header class="site-header">
-    <h1 class="title">O Banquete dos Onze</h1>
-    <p class="subtitle">Dossiê Documental &amp; Histórico</p>
-    <p class="meta-info">
-      <span>Erigutemberg Meneses</span> · <span>2026</span> · <span>Recife — Pernambuco</span>
-    </p>
-    <div class="license-badge">CC BY-NC-ND 4.0 International</div>
-  </header>
+<main>
 
-  <!-- INTRODUÇÃO -->
-  <section class="intro">
-    <p>Este sítio reúne os documentos complementares ao romance <em>O Banquete dos Onze</em> (2026). Trata-se de uma camada de preservação e pesquisa que permite ao leitor, ao professor e ao historiador explorar a fronteira entre ficção e arquivo. Cada card abaixo contém um dos três documentos do dossiê — clique para expandir e ler integralmente.</p>
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="titulo">
+    <div class="eyebrow">Romance histórico · Pacote documental complementar</div>
+    <h1 id="titulo">O Banquete<br>dos Onze.</h1>
+    <p class="subtitle">Dossiê Documental e Histórico da obra de Erigutemberg Meneses. Fac-símile do manuscrito de Feliciana, Livro de Contas de Evaristo Gouveia e Nota Histórica Expandida.</p>
+    <div class="meta">
+      <span>📖 Autor: Erigutemberg Meneses</span>
+      <span>🗓️ Ano: 2026</span>
+      <span>📍 Recife — Pernambuco — Brasil</span>
+      <span>⚖️ CC BY-NC-ND 4.0</span>
+      <span>🌐 Português (BR)</span>
+    </div>
   </section>
 
-  <!-- GRID DE CARDS -->
-  <main class="cards-grid">
+  <!-- DESCRIÇÃO -->
+  <section aria-labelledby="descricao">
+    <h2 id="descricao">Sobre este Dossiê</h2>
+    <p class="lead">Sítio estático complementar ao romance <em>O Banquete dos Onze</em> (2026), contendo o <strong>Pacote Documental e Histórico</strong> da obra.</p>
+    <p>O Dossiê reúne três conjuntos de materiais produzidos a partir da pesquisa que sustentou o romance: o fac-símile do manuscrito de Feliciana, a reconstrução digital do Livro de Contas de Evaristo Gouveia e uma nota histórica expandida que separa fato documentado de licença poética.</p>
+    <p>O objetivo é oferecer a leitores, professores e historiadores um acesso organizado às fontes ficcionais e ao contexto histórico que atravessa a narrativa — sem confundir invenção literária com prova documental.</p>
+  </section>
 
-    <!-- CARD 1: MANUSCRITO -->
-    <article class="card" tabindex="0" aria-expanded="false" data-card="manuscript">
-      <div class="card-number">Documento I</div>
-      <h2>Fac-símile do Manuscrito de Feliciana</h2>
-      <p class="card-summary">Transcrição em formato de papel envelhecido (1876), com anotações marginais de Tomás. Ditado por Feliciana; registrado pelo filho.</p>
-      <div class="card-hint">Clique para ler o manuscrito</div>
+  <!-- DOCUMENTOS -->
+  <section aria-labelledby="documentos">
+    <h2 id="documentos">Conteúdo do Pacote Documental</h2>
+    <div class="cards">
 
-      <div class="card-content">
-        <!-- PÁGINA 1 -->
-        <div class="manuscript-page">
-          <div class="manuscript-header">Manuscrito de Feliciana — 1876</div>
+      <article class="card" aria-labelledby="doc1">
+        <span class="num" aria-hidden="true">01</span>
+        <h3 id="doc1">Fac-símile do Manuscrito de Feliciana</h3>
+        <p>Transcrição do manuscrito de 1876 em formato de papel envelhecido, com anotações marginais de Tomás. Reproduz a caligrafia, as rasuras e as marcas de uso do documento original.</p>
+        <span class="tag">Documento ficcional</span>
+      </article>
 
-          <p>Eu, Feliciana, mãe de Tomás, escrevo estas páginas para que a separação de uma família e os negócios que a provocaram não desapareçam com a memória de quem os viveu. Não sei quem encontrará estas folhas. Não sei se será alguém ligado aos homens que participaram daqueles acontecimentos ou uma pessoa que nunca ouviu falar deles.</p>
+      <article class="card" aria-labelledby="doc2">
+        <span class="num" aria-hidden="true">02</span>
+        <h3 id="doc2">Livro de Contas de Evaristo Gouveia</h3>
+        <p>Reconstrução digital dos lançamentos de 1865–1873, com filtros interativos por participante. Permite confrontar datas, valores e abreviaturas mencionadas na narrativa.</p>
+        <span class="tag">Reconstrução digital</span>
+      </article>
 
-          <p>Não peço que acredite sem examinar. Peço que leia, compare os documentos e procure distinguir o que presenciei daquilo que soube por outras pessoas.</p>
+      <article class="card" aria-labelledby="doc3">
+        <span class="num" aria-hidden="true">03</span>
+        <h3 id="doc3">Nota Histórica Expandida</h3>
+        <p>Ensaio de contextualização que separa fato histórico comprovado de licença poética, com referências a Maria Helena Machado, Hebe Maria Mattos, Robert Slenes, Gilberto Freyre e Jacob Gorender.</p>
+        <span class="tag">Ensaio</span>
+      </article>
 
-          <div class="tomas-note margin-left">Minha mãe ditava estas palavras à luz de uma vela. Eu escrevia. Ela mandava eu reler. Quando a palavra não saía certa, ela me fazia riscar e escrever de novo. Dizia: "A verdade não pode ter pressa."</div>
-        </div>
-
-        <!-- PÁGINA 2 -->
-        <div class="manuscript-page">
-          <p>Era maio de 1865. Tomás tinha treze anos. Até o meio-dia fora um dia como qualquer outro, com cheiro de café coando e mandioca descascando. Depois do meio-dia, o mundo se partiu em dois.</p>
-
-          <p>O sinhô Joaquim mandou me chamar. Na sala de visitas estavam ele, o doutor Antônio Vanderlei e um homem que eu não conhecia, com um papel na mão. Falaram de uma transferência, de um atestado do doutor Luís Carneiro dizendo que o rapaz precisava de cuidados que ali não podia receber. Eu sabia que era mentira. Tomás não estava doente. Estava sendo vendido.</p>
-
-          <div class="tomas-note margin-right">Mãe sempre dizia que o papel foi a arma. "A faca corta o corpo uma vez. O papel corta a vida inteira."</div>
-        </div>
-
-        <!-- PÁGINA 3 -->
-        <div class="manuscript-page">
-          <p>Os homens que nos separaram não eram um só. Eram muitos. Cada um com sua parte, cada um com seu papel assinado. Joaquim autorizou. Antônio intermediou. José Tavares escreveu os instrumentos. Luís Carneiro assinou o atestado falso. Raimundo Lessa cuidou do transporte. Evaristo Gouveia guardou os números.</p>
-
-          <p>Eu ouvia tudo da cozinha. As paredes da casa-grande são grossas, mas não são surdas. E eu aprendi que o silêncio é a melhor ferramenta de quem não tem voz.</p>
-
-          <div class="tomas-note margin-bottom">Encontrei esta página rabiscada. Mãe deve ter escrito com pressa, porque a letra treme. Talvez fosse a noite em que recebeu minha primeira carta, em setembro de 1873.</div>
-        </div>
-
-        <!-- PÁGINA 4 -->
-        <div class="manuscript-page">
-          <p>Em novembro de 1873, organizando a despensa, encontrei um caderno de capa escura atrás de uma saca de farinha. Tinha nomes, datas e valores. Reconheci o nome de Tomás. Reconheci a data de maio de 1865. Reconheci números que já vira em outros papéis.</p>
-
-          <p>Não era o livro original. Mas era um espelho dele. E no espelho, pela primeira vez, eu via o rosto dos homens que me tiraram o filho.</p>
-
-          <div class="tomas-note margin-left">Este caderno era a cópia que Evaristo Gouveia mandara fazer em 1868. O original ficou em Goiana. Mãe nunca soube disso com certeza — deduziu pelas conversas que ouvia. Eu confirmei depois, em 1909, quando Helena Carneiro me mostrou os papéis do pai dela.</div>
-        </div>
-
-        <!-- PÁGINA 5 -->
-        <div class="manuscript-page">
-          <p>Se decidir guardar estes papéis, faça-o com cuidado. Se decidir mostrá-los, não retire deles os nomes, as datas e as circunstâncias. O que aconteceu não foi apenas uma questão entre senhores. Atingiu uma mãe, um filho e pessoas que não tiveram o direito de escolher.</p>
-
-          <p>Não escrevi para pedir vingança. Escrevi para que a memória não dependesse apenas daqueles que tinham poder para registrar a própria versão.</p>
-
-          <div class="signature">Feliciana.</div>
-
-          <div class="tomas-note center-large">Minha mãe morreu em 1880. Eu guardei tudo desde então. Quem encontrar estas páginas, guarde também. A verdade, quando é bem guardada, encontra seu caminho.</div>
-
-          <div class="manuscript-footer">Acervo Tomás / doado a Helena Carneiro, março de 1909</div>
-        </div>
-      </div>
-    </article>
-
-    <!-- CARD 2: LIVRO DE CONTAS -->
-    <article class="card" tabindex="0" aria-expanded="false" data-card="accounts">
-      <div class="card-number">Documento II</div>
-      <h2>O Livro de Contas de Evaristo Gouveia</h2>
-      <p class="card-summary">Reconstrução digital dos lançamentos de 1865–1873. Tabela filtrável por participante. Investigue como Helena Carneiro.</p>
-      <div class="card-hint">Clique para abrir o livro</div>
-
-      <div class="card-content">
-        <p class="accounts-intro">Os lançamentos abaixo reproduzem, em formato legível, a contabilidade paralela organizada por Evaristo Gouveia entre 1865 e 1873. Use os filtros para rastrear a participação de cada homem. Campos em branco indicam lacunas intencionais — as mesmas que Helena encontrou.</p>
-
-        <div class="filter-bar">
-          <label>Filtrar por:</label>
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="J.C.">Joaquim C.</button>
-          <button class="filter-btn" data-filter="A.V.">Antônio V.</button>
-          <button class="filter-btn" data-filter="J.T.">José T.</button>
-          <button class="filter-btn" data-filter="L.C.">Luís C.</button>
-          <button class="filter-btn" data-filter="R.L.">Raimundo L.</button>
-          <button class="filter-btn" data-filter="E.G.">Evaristo G.</button>
-          <button class="filter-btn" data-filter="M.R.B.">Manuel R.B.</button>
-          <button class="filter-btn" data-filter="B.F.">Bento F.</button>
-          <button class="filter-btn" data-filter="A.S.">Álvaro S.</button>
-        </div>
-
-        <div class="accounts-table-wrapper">
-          <table class="accounts-table">
-            <thead>
-              <tr>
-                <th>Data</th>
-                <th>Folh.</th>
-                <th>Descrição da Operação</th>
-                <th>Partes</th>
-                <th style="text-align:right">Valor (réis)</th>
-                <th>Observações</th>
-              </tr>
-            </thead>
-            <tbody id="accounts-body">
-              <!-- Preenchido via JS -->
-            </tbody>
-          </table>
-        </div>
-
-        <div class="legend-box">
-          <h4>Legenda de Iniciais</h4>
-          <dl>
-            <dt>J.C.</dt><dd>Joaquim Cavalcante de Albuquerque — anfitrião</dd>
-            <dt>A.V.</dt><dd>Antônio Vanderlei — comerciante / intermediário</dd>
-            <dt>J.T.</dt><dd>José Tavares — advogado</dd>
-            <dt>L.C.</dt><dd>Luís Carneiro — médico</dd>
-            <dt>R.L.</dt><dd>Raimundo Lessa — transportador</dd>
-            <dt>E.G.</dt><dd>Evaristo Gouveia — contador / guardião do livro</dd>
-            <dt>F.A.</dt><dd>Francisco Albuquerque — advogado / político</dd>
-            <dt>M.R.B.</dt><dd>Manuel Rego Barros — proprietário</dd>
-            <dt>B.F.</dt><dd>Bento Figueira — proprietário endividado</dd>
-            <dt>A.S.</dt><dd>Álvaro Siqueira — exportador</dd>
-          </dl>
-        </div>
-      </div>
-    </article>
-
-    <!-- CARD 3: NOTA HISTÓRICA -->
-    <article class="card" tabindex="0" aria-expanded="false" data-card="history">
-      <div class="card-number">Documento III</div>
-      <h2>Nota Histórica Expandida</h2>
-      <p class="card-summary">Entre o arquivo e a ficção: fundamentos históricos do romance. O que é fato comprovado, o que é licença poética, e o pacto com o leitor.</p>
-      <div class="card-hint">Clique para ler o ensaio</div>
-
-      <div class="card-content">
-        <div class="historical-note">
-          <h3>1. O que é fato histórico comprovado</h3>
-
-          <h4>A "indústria da separação"</h4>
-          <p>Após a Lei Eusébio de Queirós (1850), que proibiu o tráfico transatlântico de africanos, o Império brasileiro assistiu à expansão de um mercado interno de escravizados. Maria Helena P. T. Machado, em <em>O plano e o pânico</em> (1994) e em estudos subsequentes, demonstrou que milhares de homens, mulheres e crianças do Nordeste foram vendidos para os cafezais do Sudeste entre 1850 e 1888. A autora cunhou a expressão <strong>indústria da separação</strong> para designar esse processo sistemático de desarticulação de famílias escravizadas, transformado em operação comercial registrada em livros de contas, contratos e correspondências.</p>
-
-          <h4>A Lei do Ventre Livre (1871) e seus limites</h4>
-          <p>A Lei nº 2.040, de 28 de setembro de 1871, declarou livres os filhos de mulheres escravizadas nascidos após sua promulgação. Na prática, porém, os "ingênuos" permaneciam sob tutela dos senhores das mães até os 21 anos, e a lei não alterou a condição dos já escravizados. Hebe Maria Mattos, em <em>Das cores do silêncio</em> (2013), mostrou como os significados da liberdade foram negociados lenta e conflituosamente, muito antes de 1888.</p>
-
-          <h4>O tráfico interprovincial em Pernambuco</h4>
-          <p>Robert W. Slenes, em <em>Na senzala, uma flor</em> (2011), documentou como a família escrava, mesmo sob o regime da violência, constituía espaço de resistência e reconstrução de vínculos. A separação forçada de mães e filhos — como a que inspira a narrativa de Feliciana e Tomás — era prática documentada em inventários, anúncios de jornal e registros paroquiais.</p>
-
-          <h4>A sociedade açucareira e a casa-grande</h4>
-          <p>Gilberto Freyre, em <em>Casa-Grande &amp; Senzala</em> (1933/2003), descreveu a estrutura patriarcal da sociedade açucareira nordestina, os banquetes como espaço de sociabilidade e negociação política, e a proximidade física — e a distância social abissal — entre senhores e escravizados. Jacob Gorender, em <em>O escravismo colonial</em> (2016), complementou essa análise ao enfatizar o caráter sistêmico da violência e a transformação das pessoas em mercadoria contábil.</p>
-
-          <h4>Banquetes e reuniões de proprietários</h4>
-          <p>Relatos de viajantes, inventários post-mortem e a própria imprensa do Recife (consultada na Hemeroteca Digital da Biblioteca Nacional) confirmam a prática de jantares solenes entre senhores de engenho, comerciantes e profissionais liberais, nos quais se negociavam safras, dívidas, casamentos e, não raramente, a transferência de pessoas escravizadas.</p>
-
-          <h3>2. O que é licença poética (elementos ficcionais)</h3>
-
-          <table>
-            <thead>
-              <tr>
-                <th>Elemento ficcional</th>
-                <th>Observação</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Feliciana, Tomás, Helena Carneiro</td><td>Personagens fictícios, embora representem experiências documentadas de milhares de mulheres e crianças separadas.</td></tr>
-              <tr><td>O Sobrado dos Cavalcante e o Engenho São Joaquim</td><td>Propriedades fictícias, inspiradas em arquiteturas reais da Zona da Mata pernambucana.</td></tr>
-              <tr><td>Os onze homens do banquete</td><td>Personagens compostos a partir de tipos sociais documentados: o comerciante intermediário, o advogado, o médico complacente, o exportador cosmopolita.</td></tr>
-              <tr><td>O banquete de 14 de dezembro de 1873 e as três mortes</td><td>Evento ficcional. A consulta ao <em>Diário de Pernambuco</em> (dez/1873–jan/1874) e aos arquivos do APEJE não registrou envenenamento coletivo de fazendeiros.</td></tr>
-              <tr><td>O livro de contas de Evaristo Gouveia</td><td>Objeto ficcional, inspirado nos livros de registros paralelos que historiadores identificaram em arquivos familiares.</td></tr>
-              <tr><td>O manuscrito de Feliciana</td><td>Ficção, mas inspirado em testemunhos reais preservados oralmente e, mais raramente, por escrito, por ex-escravizados e seus descendentes.</td></tr>
-              <tr><td>A delegacia e a "versão oficial" de Amaro de Mendonça</td><td>Reconstrução verossímil de como o sistema de justiça imperial tratava denúncias envolvendo senhores e escravizados — arquivamento, silêncio, inversão da culpa.</td></tr>
-            </tbody>
-          </table>
-
-          <h3>3. O pacto com o leitor</h3>
-          <p>Este romance não pretende ser documento. Pretende, como escreveu Walter Benjamin em suas <em>Teses sobre a filosofia da história</em>, "escovar a história a contrapelo" — dar voz àqueles que os arquivos oficiais silenciaram. A ficção, quando informada pela pesquisa histórica rigorosa, não inventa a verdade: dá rosto, nome e corpo à verdade que a história oficial deixou de registrar.</p>
-          <blockquote>As Felicianas existiram. Os Tomases existiram. Os banquetes onde se decidia o destino de famílias inteiras existiram. O que este livro oferece não é a reconstituição de um crime específico, mas a iluminação de uma estrutura — a "indústria da separação" descrita por Machado — encarnada em personagens que, embora fictícios, carregam o peso de uma experiência coletiva real.</blockquote>
-
-          <h3>4. Referências consultadas</h3>
-          <div class="references">
-            <ul>
-              <li>FREYRE, Gilberto. <em>Casa-Grande &amp; Senzala</em>. 48. ed. Recife: Global, 2003.</li>
-              <li>GORENDER, Jacob. <em>O escravismo colonial</em>. 6. ed. São Paulo: Expressão Popular, 2016.</li>
-              <li>MACHADO, Maria Helena Pereira Toledo. <em>O plano e o pânico</em>. São Paulo: Edusp, 1994.</li>
-              <li>MATTOS, Hebe Maria. <em>Das cores do silêncio</em>. 3. ed. Campinas: Editora da Unicamp, 2013.</li>
-              <li>SLENES, Robert W. <em>Na senzala, uma flor</em>. 2. ed. Campinas: Editora da Unicamp, 2011.</li>
-              <li>CARVALHO, Marcus J. M. de. <em>Liberdade: rotinas e rupturas do escravismo no Recife, 1822-1850</em>. Recife: Ed. Universitária da UFPE, 1998.</li>
-              <li>LAURINDO, L. C. "Alguns vêm de lá, outros vão de cá". <em>História</em>, São Paulo, v. 37, 2018.</li>
-              <li>Hemeroteca Digital da Biblioteca Nacional (consultas ao <em>Diário de Pernambuco</em>, 1873-1874).</li>
-              <li>Arquivo Público Estadual Jordão Emerenciano (APEJE), Recife.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </article>
-
-  </main>
-
-  <!-- RODAPÉ -->
-  <footer class="site-footer">
-    <div class="doi-box">
-      DOI: <strong>10.xxxx/xxxxx</strong> · Zenodo · Internet Archive
     </div>
-    <p><strong>O Banquete dos Onze</strong> — Erigutemberg Meneses, 2026</p>
-    <p>Licenciado sob <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.pt" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0</a></p>
-    <p>"A verdade, quando é bem guardada, encontra seu caminho."</p>
-    <p style="margin-top:1.5rem; font-size:0.75rem; opacity:0.7;">
-      Este sítio foi concebido para preservação de longo prazo. Arquivado no Zenodo e no Internet Archive.
+  </section>
+
+  <!-- LEITOR ACESSÍVEL (DESTAQUE) -->
+  <section aria-labelledby="leitor">
+    <div class="reader-cta">
+      <div>
+        <h2 id="leitor">Leitor Acessível Entrelinhas</h2>
+        <p>Leia o romance com narração em voz alta, ajuste de tamanho de fonte, modo de alto contraste e navegação por teclado. Projetado para leitores com deficiência visual, baixa visão e dislexia.</p>
+        <div class="features" aria-label="Recursos de acessibilidade">
+          <span>Narração TTS</span>
+          <span>Fonte ajustável</span>
+          <span>Alto contraste</span>
+          <span>Navegação por teclado</span>
+          <span>Compatível com NVDA e TalkBack</span>
+        </div>
+      </div>
+      <a class="cta-btn" href="leitor-acessivel.html" aria-label="Abrir o Leitor Acessível Entrelinhas">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="M4 2l10 6-10 6V2Z"/>
+        </svg>
+        Abrir o Leitor
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO TÉCNICO -->
+  <section aria-labelledby="tecnico">
+    <h2 id="tecnico">Conteúdo Técnico</h2>
+    <p>O Dossiê e o Leitor Acessível foram construídos com foco em preservação digital, portabilidade e acessibilidade. Ambos são arquivos HTML estáticos, sem dependências externas além das fontes Google.</p>
+
+    <div class="table-wrap">
+      <table>
+        <caption class="visually-hidden" style="position:absolute;left:-9999px">Especificações técnicas dos arquivos do Dossiê</caption>
+        <thead>
+          <tr>
+            <th scope="col">Recurso</th>
+            <th scope="col">Dossiê (<code>index.html</code>)</th>
+            <th scope="col">Leitor (<code>leitor-acessivel.html</code>)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Formato</th>
+            <td>HTML5 estático, arquivo único</td>
+            <td>HTML5 estático, arquivo único</td>
+          </tr>
+          <tr>
+            <th scope="row">Dependências</th>
+            <td>Google Fonts (substituíveis por fontes locais)</td>
+            <td>Google Fonts (substituíveis por fontes locais)</td>
+          </tr>
+          <tr>
+            <th scope="row">Responsivo</th>
+            <td>Sim (mobile-first)</td>
+            <td>Sim (mobile-first, com ajuste de fonte até 30px)</td>
+          </tr>
+          <tr>
+            <th scope="row">Acessibilidade</th>
+            <td>Navegação por teclado, <code>aria-expanded</code>, <code>prefers-reduced-motion</code></td>
+            <td>Títulos navegáveis, <code>blockquote</code>, <code>figure</code>/<code>alt</code>, <code>role="status"</code>, <code>aria-live</code>, TTS pt-BR, alto contraste</td>
+          </tr>
+          <tr>
+            <th scope="row">Preservação</th>
+            <td>Compatível com PDF/A via conversão</td>
+            <td>Compatível com PDF/A via conversão; funciona offline</td>
+          </tr>
+          <tr>
+            <th scope="row">Arquivamento</th>
+            <td>Zenodo · Internet Archive</td>
+            <td>Zenodo · Internet Archive</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- COMO CITAR -->
+  <section aria-labelledby="citar">
+    <h2 id="citar">Como Citar</h2>
+    <blockquote>
+      MENESES, Erigutemberg. <em>O Banquete dos Onze — Dossiê Documental &amp; Histórico</em> [sítio eletrônico]. Recife, 2026. Disponível em: <a class="inline-link" href="https://erigutembergmeneses-jpg.github.io/o-banquete-dos-onze-dossie-/">erigutembergmeneses-jpg.github.io/o-banquete-dos-onze-dossie-/</a>. DOI: 10.xxxx/xxxxx. Acesso em: DD Mês AAAA.
+    </blockquote>
+    <p>Para citar o Leitor Acessível especificamente, utilize a URL direta: <a class="inline-link" href="leitor-acessivel.html">leitor-acessivel.html</a>.</p>
+  </section>
+
+  <!-- PALAVRAS-CHAVE -->
+  <section aria-labelledby="palavras">
+    <h2 id="palavras">Palavras-chave</h2>
+    <p style="font-size:14px;color:var(--muted);letter-spacing:.02em;line-height:1.9">
+      ficção histórica · escravidão Brasil · tráfico interprovincial · Pernambuco século XIX · indústria da separação · casa-grande · memória · preservação digital · humanidades digitais · acessibilidade · leitor de tela · narração TTS
     </p>
-  </footer>
+  </section>
 
-</div>
+  <!-- ARQUIVAMENTO -->
+  <section aria-labelledby="arquivamento">
+    <h2 id="arquivamento">Arquivamento e Preservação</h2>
+    <p>O Dossiê e o Leitor Acessível são preservados em repositórios de longo prazo, garantindo que o conteúdo permaneça acessível independentemente de mudanças em plataformas comerciais.</p>
+    <ul style="font-size:15px;line-height:1.9;color:var(--muted);padding-left:22px">
+      <li><strong>Zenodo</strong> — comunidade "Humanidades Digitais Lusófonas"</li>
+      <li><strong>Internet Archive</strong> — coleção "Literatura Brasileira Contemporânea"</li>
+      <li><strong>Formato</strong> — HTML estático + PDF/A-3 (gerado a partir do HTML)</li>
+    </ul>
+  </section>
 
-<script>
-  // === DADOS DO LIVRO DE CONTAS ===
-  const accounts = [
-    { date: "05/05/1865", fol: "001", desc: "Instrumento de transferência de Tomás, filho de Feliciana", parties: "J.C. → A.V.", value: "—", obs: "Contrato lavrado por J.T. Test.: J.T., L.C.", tags: ["J.C.","A.V.","J.T.","L.C."] },
-    { date: "12/05/1865", fol: "002", desc: "Atestado médico justificando transferência", parties: "L.C.", value: "—", obs: "\"Necessidade de cuidados especiais\"", tags: ["L.C."] },
-    { date: "15/05/1865", fol: "003", desc: "Pagamento pela transferência de Tomás", parties: "J.C. → E.G.", value: "800$000", obs: "Recebido em 12/07/1865 (conf. assentamento)", tags: ["J.C.","E.G."] },
-    { date: "20/05/1865", fol: "004", desc: "Comissão de intermediação", parties: "A.V.", value: "120$000", obs: "\"Pelos serviços de colocação\"", tags: ["A.V."] },
-    { date: "22/05/1865", fol: "005", desc: "Honorários de lavratura do instrumento", parties: "J.T.", value: "50$000", obs: "—", tags: ["J.T."] },
-    { date: "25/05/1865", fol: "006", desc: "Honorários do atestado médico", parties: "L.C.", value: "30$000", obs: "—", tags: ["L.C."] },
-    { date: "28/05/1865", fol: "007", desc: "Transporte de Tomás até o porto", parties: "R.L.", value: "45$000", obs: "\"Viagem por conta do adquirente\"", tags: ["R.L."] },
-    { date: "02/06/1865", fol: "008", desc: "Hospedagem e alimentação (escala)", parties: "R.L.", value: "12$500", obs: "—", tags: ["R.L."] },
-    { date: "10/06/1865", fol: "009", desc: "Entrega no destino final", parties: "R.L. → ?", value: "25$000", obs: "\"Conforme instruções de A.V.\"", tags: ["R.L.","A.V."] },
-    { date: "12/07/1865", fol: "010", desc: "Assentamento do pagamento principal", parties: "E.G.", value: "800$000", obs: "\"Recebido de J.C. — conf. instrumento de 05/05\"", tags: ["E.G.","J.C."] },
-    { date: "15/07/1865", fol: "011", desc: "Rateio de comissão entre participantes", parties: "E.G.", value: "60$000", obs: "Dividido entre F.A., M.R.B., B.F.", tags: ["E.G.","F.A.","M.R.B.","B.F."] },
-    { date: "20/08/1865", fol: "012", desc: "Garantia de dívida sobre terras", parties: "M.R.B.", value: "450$000", obs: "\"Em favor de J.C.\"", tags: ["M.R.B.","J.C."] },
-    { date: "10/09/1865", fol: "013", desc: "Pagamento de juros sobre garantia", parties: "J.C. → M.R.B.", value: "22$500", obs: "Semestrais", tags: ["J.C.","M.R.B."] },
-    { date: "03/11/1865", fol: "014", desc: "Correspondência comercial (referência)", parties: "A.S.", value: "—", obs: "\"Compradores do Sul interessados\"", tags: ["A.S."] },
-    { date: "18/12/1865", fol: "015", desc: "Ajuste de contas anual", parties: "E.G.", value: "—", obs: "\"Todos os participantes quite\"", tags: ["E.G."] },
-    { date: "14/01/1866", fol: "016", desc: "Queixa de Feliciana (arquivada)", parties: "J.C.", value: "—", obs: "\"Sem prosseguimento, conf. deliberação\"", tags: ["J.C."] },
-    { date: "22/03/1866", fol: "017", desc: "Pagamento de silêncio a testemunha", parties: "A.V.", value: "80$000", obs: "\"Ao capataz Inácio, por discrição\"", tags: ["A.V."] },
-    { date: "05/06/1868", fol: "018", desc: "Cópia do presente livro (despesa)", parties: "E.G.", value: "15$000", obs: "\"Escrevente de confiança — duas vias\"", tags: ["E.G."] },
-    { date: "14/12/1873", fol: "019", desc: "Última anotação (incompleta)", parties: "E.G.", value: "—", obs: "\"Reunião no Sobrado. Assunto: —\"", tags: ["E.G."] }
-  ];
+  <!-- SOBRE O AUTOR -->
+  <section aria-labelledby="autor">
+    <h2 id="autor">Sobre o Autor</h2>
+    <p><strong>Erigutemberg Meneses</strong> é advogado, escritor e pesquisador. Autor de <em>O Nó do Poço Seu</em> e <em>O Banquete dos Onze</em>, dedica-se à representação literária de experiências humanas atravessadas por estruturas de poder, desigualdade e vulnerabilidade.</p>
+    <p>Seu trabalho articula direito, neurociência e literatura, com foco na preservação da memória de grupos cujas experiências raramente encontram lugar nos documentos produzidos pelos grupos dominantes.</p>
+    <p>Perfil ORCID: <a class="inline-link" href="https://orcid.org/0009-0009-5108-0585" target="_blank" rel="noopener">orcid.org/0009-0009-5108-0585</a></p>
+  </section>
 
-  // === RENDERIZAÇÃO DA TABELA ===
-  const tbody = document.getElementById('accounts-body');
-  function renderAccounts(filter = 'all') {
-    tbody.innerHTML = '';
-    const filtered = filter === 'all' ? accounts : accounts.filter(a => a.tags.includes(filter));
-    filtered.forEach(a => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td class="date">${a.date}</td>
-        <td>${a.fol}</td>
-        <td>${a.desc}</td>
-        <td class="parties">${a.parties}</td>
-        <td class="value">${a.value}</td>
-        <td>${a.obs}</td>
-      `;
-      tbody.appendChild(tr);
-    });
-  }
-  renderAccounts();
+  <!-- LICENÇA -->
+  <section aria-labelledby="licenca">
+    <h2 id="licenca">Licença</h2>
+    <p>Esta obra está licenciada sob <strong>Creative Commons BY-NC-ND 4.0 International</strong> — Atribuição, Não Comercial, Sem Derivações. O texto do romance e os documentos ficcionais são de autoria de Erigutemberg Meneses. O código do Leitor Acessível pode ser reutilizado sob MIT para outros manuscritos, mantendo a atribuição ao modelo Entrelinhas.</p>
+    <p><a class="inline-link" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.pt-br" target="_blank" rel="noopener">Saiba mais sobre a licença CC BY-NC-ND 4.0</a></p>
+  </section>
 
-  // === FILTROS ===
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderAccounts(btn.dataset.filter);
-    });
-  });
+</main>
 
-  // === EXPANSÃO DOS CARDS ===
-  document.querySelectorAll('.card').forEach(card => {
-    function toggle() {
-      const isExpanded = card.classList.contains('expanded');
-      // Colapsa todos os outros
-      document.querySelectorAll('.card').forEach(c => {
-        c.classList.remove('expanded');
-        c.setAttribute('aria-expanded', 'false');
-      });
-      if (!isExpanded) {
-        card.classList.add('expanded');
-        card.setAttribute('aria-expanded', 'true');
-        setTimeout(() => {
-          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
-      }
-    }
-    card.addEventListener('click', toggle);
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggle();
-      }
-    });
-  });
-</script>
+<footer>
+  <span>© 2026 Erigutemberg Meneses · O Banquete dos Onze — Dossiê Documental &amp; Histórico</span>
+  <span>Recife — Pernambuco — Brasil · <a href="leitor-acessivel.html">Leitor Acessível</a></span>
+</footer>
 
 </body>
 </html>
