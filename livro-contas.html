@@ -1,5 +1,184 @@
-Reconstrução digital. Lançamentos baseados em registros ficcionais de 1865–1873. Os valores e abreviações são reproduzidos conforme a narrativa do romance.
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livro de Contas de Evaristo Gouveia — O Banquete dos Onze</title>
+<style>
+  :root {
+    --fundo: #1a1410;
+    --papel: #f4ecd8;
+    --tinta: #2b1d0e;
+    --tinta-suave: #5a4632;
+    --borda: #c9b89a;
+    --ouro: #c9a227;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--tinta);
+    font-family: Georgia, serif;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+  }
+  .aviso {
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    background: #3a2a1a;
+    color: #f4ecd8;
+    padding: 1rem 1.25rem;
+    border-left: 4px solid var(--ouro);
+    font-family: system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+  .aviso strong { color: #e8c84a; }
+  .painel {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--papel);
+    padding: 2rem;
+    border: 1px solid var(--borda);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  }
+  h1 {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--tinta-suave);
+    border-bottom: 1px solid var(--borda);
+    padding-bottom: 1rem;
+    margin: 0 0 1rem;
+  }
+  .intro { color: var(--tinta-suave); font-size: 0.98rem; margin-bottom: 1.5rem; }
+  .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-family: system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+  label { font-weight: 600; color: var(--tinta-suave); }
+  select {
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid var(--borda);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--tinta);
+  }
+  select:focus { outline: 3px solid var(--ouro); }
+  #contador { margin-left: auto; font-size: 0.85rem; color: var(--tinta-suave); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+  caption { caption-side: top; text-align: left; font-size: 0.85rem; color: var(--tinta-suave); padding-bottom: 0.5rem; }
+  th, td { padding: 0.6rem 0.5rem; border-bottom: 1px solid var(--borda); text-align: left; }
+  th { background: rgba(201,184,154,0.35); font-family: system-ui, sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--tinta-suave); }
+  tbody tr:hover { background: rgba(201,162,39,0.08); }
+  .valor { text-align: right; font-variant-numeric: tabular-nums; }
+  .vazio { text-align: center; padding: 2rem; color: var(--tinta-suave); font-style: italic; }
+  .voltar {
+    display: inline-block;
+    margin: 2rem auto 0;
+    padding: 0.75rem 1.5rem;
+    background: var(--ouro);
+    color: var(--fundo);
+    text-decoration: none;
+    font-family: system-ui, sans-serif;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+  .voltar:focus { outline: 3px solid #fff; outline-offset: 2px; }
+  .center { text-align: center; }
+  @media (max-width: 560px) {
+    .painel { padding: 1.25rem; }
+    th, td { font-size: 0.85rem; padding: 0.5rem 0.3rem; }
+    #contador { margin-left: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
 
-Texto introdutório:
+<div class="aviso" role="note">
+  <strong>Reconstrução digital.</strong> Lançamentos baseados em registros ficcionais de 1865–1873. Os valores e abreviações são reproduzidos conforme a narrativa do romance.
+</div>
 
-"O Livro de Contas de Evaristo Gouveia cobre o período de 1865 a 1873 e registra transações, dívidas e acertos entre participantes da casa e de fora dela. As abreviações — E.G., F., T. — aparecem no original e são preservadas nesta reconstrução. Use o filtro para confrontar datas e valores por participante."
+<main class="painel">
+  <h1>Livro de Contas de Evaristo Gouveia</h1>
+  <p class="intro">
+    O Livro de Contas cobre o período de 1865 a 1873 e registra transações, dívidas e acertos
+    entre participantes da casa e de fora dela. As abreviações — E.G., F., T. — aparecem no
+    original e são preservadas nesta reconstrução. Use o filtro para confrontar datas e valores
+    por participante.
+  </p>
+
+  <div class="filtros">
+    <label for="filtro-participante">Filtrar por participante:</label>
+    <select id="filtro-participante" aria-controls="corpo-contas">
+      <option value="">Todos</option>
+      <option value="evaristo">Evaristo Gouveia (E.G.)</option>
+      <option value="feliciana">Feliciana (F.)</option>
+      <option value="tomas">Tomás (T.)</option>
+    </select>
+    <span id="contador" role="status" aria-live="polite"></span>
+  </div>
+
+  <table>
+    <caption>Lançamentos de 1865 a 1873 — registros ficcionais</caption>
+    <thead>
+      <tr>
+        <th scope="col">Data</th>
+        <th scope="col">Participante</th>
+        <th scope="col" class="valor">Valor</th>
+        <th scope="col">Abreviatura</th>
+      </tr>
+    </thead>
+    <tbody id="corpo-contas">
+      <tr data-participante="evaristo"><td>1865-03-12</td><td>Evaristo Gouveia</td><td class="valor">120$000</td><td>E.G.</td></tr>
+      <tr data-participante="feliciana"><td>1865-07-04</td><td>Feliciana</td><td class="valor">85$000</td><td>F.</td></tr>
+      <tr data-participante="tomas"><td>1866-01-19</td><td>Tomás</td><td class="valor">30$000</td><td>T.</td></tr>
+      <tr data-participante="evaristo"><td>1866-09-08</td><td>Evaristo Gouveia</td><td class="valor">210$000</td><td>E.G.</td></tr>
+      <tr data-participante="feliciana"><td>1867-08-05</td><td>Feliciana</td><td class="valor">85$000</td><td>F.</td></tr>
+      <tr data-participante="tomas"><td>1868-02-22</td><td>Tomás</td><td class="valor">45$000</td><td>T.</td></tr>
+      <tr data-participante="evaristo"><td>1869-11-30</td><td>Evaristo Gouveia</td><td class="valor">300$000</td><td>E.G.</td></tr>
+      <tr data-participante="feliciana"><td>1870-06-17</td><td>Feliciana</td><td class="valor">60$000</td><td>F.</td></tr>
+      <tr data-participante="tomas"><td>1871-04-02</td><td>Tomás</td><td class="valor">75$000</td><td>T.</td></tr>
+      <tr data-participante="evaristo"><td>1872-10-14</td><td>Evaristo Gouveia</td><td class="valor">180$000</td><td>E.G.</td></tr>
+      <tr data-participante="feliciana"><td>1873-03-28</td><td>Feliciana</td><td class="valor">95$000</td><td>F.</td></tr>
+      <tr data-participante="tomas"><td>1873-12-09</td><td>Tomás</td><td class="valor">50$000</td><td>T.</td></tr>
+    </tbody>
+  </table>
+</main>
+
+<div class="center">
+  <a href="index.html" class="voltar">← Voltar ao Dossiê</a>
+</div>
+
+<script>
+  const filtro = document.getElementById('filtro-participante');
+  const corpo = document.getElementById('corpo-contas');
+  const contador = document.getElementById('contador');
+  const linhas = Array.from(corpo.querySelectorAll('tr'));
+
+  function atualizar() {
+    const valor = filtro.value;
+    let visiveis = 0;
+    linhas.forEach(linha => {
+      const mostrar = !valor || linha.dataset.participante === valor;
+      linha.hidden = !mostrar;
+      if (mostrar) visiveis++;
+    });
+    contador.textContent = visiveis + (visiveis === 1 ? ' lançamento' : ' lançamentos');
+  }
+
+  filtro.addEventListener('change', atualizar);
+  atualizar();
+</script>
+
+</body>
+</html>
