@@ -173,6 +173,24 @@ p{margin:0 0 16px;font-size:16px}
   margin-top:auto;
 }
 
+/* ▼▼▼ COLE AQUI O CSS DO .card-btn ▼▼▼ */
+.card-btn{
+  display:inline-block;
+  padding:10px 18px;
+  background:var(--ink);
+  color:var(--paper);
+  text-decoration:none;
+  font-family:"DM Sans",sans-serif;
+  font-weight:600;
+  font-size:14px;
+  border-radius:4px;
+  margin-top:12px;
+  align-self:flex-start;
+  transition:background .2s,transform .2s;
+}
+.card-btn:hover{background:var(--highlight);transform:translateY(-1px)}
+.card-btn:focus-visible{outline:3px solid var(--highlight);outline-offset:3px}
+/* ▲▲▲ FIM DO CSS DO .card-btn ▲▲▲ */
 /* --- Destaque Leitor Acessível --- */
 .reader-cta{
   background:var(--ink);
