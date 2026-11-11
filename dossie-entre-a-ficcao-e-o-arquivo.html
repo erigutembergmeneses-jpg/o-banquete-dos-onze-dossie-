@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101b2a">
+<meta name="description" content="Dossiê documental e histórico do romance O Banquete dos Onze, de Erigutemberg Meneses.">
+<title>Entre a Ficção e o Arquivo — O Banquete dos Onze</title>
+<style>
+:root{
+  --navy:#101b2a; --navy2:#19283a; --gold:#c6a66a; --gold2:#e1c995;
+  --ink:#24272b; --muted:#626a73; --paper:#fbfaf7; --line:#e6dfd2;
+  --cream:#f3eee4; --white:#fff; --link:#7b5b25; --shadow:0 12px 36px rgba(16,27,42,.09);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.76 Georgia,"Times New Roman",serif}
+a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:#4e3918}
+.skip{position:absolute;left:-9999px;top:auto}.skip:focus{left:1rem;top:1rem;background:#fff;padding:.7rem;z-index:100}
+header.hero{background:linear-gradient(135deg,var(--navy),#22344a);color:#f8f5ee;padding:clamp(2.6rem,7vw,5.5rem) 1.2rem 3.3rem;border-bottom:4px solid var(--gold)}
+.hero-inner{max-width:1080px;margin:auto}
+.eyebrow{font:600 .76rem/1.4 Arial,sans-serif;letter-spacing:.19em;text-transform:uppercase;color:var(--gold2)}
+h1{font-size:clamp(2.35rem,6vw,4.4rem);line-height:1.02;letter-spacing:-.035em;margin:.8rem 0 .55rem;font-weight:500}
+h1 span{display:block;color:var(--gold2)}
+.subtitle{font-size:clamp(1.08rem,2.4vw,1.35rem);color:#e6dfd2;max-width:760px;margin:1.15rem 0}
+.byline{font: .88rem/1.6 Arial,sans-serif;color:#d7d0c4;margin-top:1.8rem}
+.byline span{display:inline-block;margin-right:1.1rem}
+main{max-width:1080px;margin:2rem auto 5rem;padding:0 1.2rem;display:grid;grid-template-columns:270px minmax(0,1fr);gap:2.3rem;align-items:start}
+nav.toc{position:sticky;top:1rem;background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:8px;padding:1.2rem;box-shadow:var(--shadow);max-height:calc(100vh - 2rem);overflow:auto}
+nav.toc h2{font:700 .78rem/1.4 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--navy);margin:0 0 .9rem}
+nav.toc ol{margin:0;padding-left:1.2rem}
+nav.toc li{font: .86rem/1.45 Arial,sans-serif;margin:.42rem 0;color:var(--muted)}
+nav.toc a{text-decoration:none;color:#384452}
+nav.toc a:hover{text-decoration:underline;color:var(--link)}
+article{min-width:0}
+.notice{background:var(--cream);border-left:4px solid var(--gold);padding:1rem 1.2rem;margin:0 0 1.8rem;border-radius:0 7px 7px 0}
+.notice strong{color:var(--navy)}
+h2.section{font-size:1.8rem;line-height:1.2;color:var(--navy);font-weight:500;margin:3rem 0 1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
+h3{font-size:1.27rem;line-height:1.35;color:#28384b;margin:2rem 0 .55rem;font-weight:600}
+h4{font:700 .95rem/1.4 Arial,sans-serif;color:#4d4538;margin:1.3rem 0 .35rem}
+p{margin:.75rem 0}
+ul{padding-left:1.35rem}
+li{margin:.35rem 0}
+blockquote{margin:1.1rem 0;padding:.75rem 1.15rem;border-left:3px solid var(--gold);background:#f7f4ed;color:#4b4a45}
+.small{font-size:.91rem;color:var(--muted)}
+.meta{font: .82rem/1.6 Arial,sans-serif;color:var(--muted)}
+.source-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem 1.15rem;margin:1rem 0;box-shadow:0 4px 16px rgba(16,27,42,.035)}
+.source-card h3{margin:.1rem 0 .45rem}
+.tag{display:inline-block;font:700 .68rem/1.4 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .48rem;border-radius:3px;background:#eee8dc;color:#67512c;margin:.2rem .25rem .2rem 0}
+.tag.fic{background:#f1e8e6;color:#81463c}
+.tag.doc{background:#e8eee9;color:#355a43}
+.tag.research{background:#e9edf3;color:#3d536e}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.93rem}
+th,td{text-align:left;vertical-align:top;padding:.72rem .75rem;border-bottom:1px solid var(--line)}
+th{font:700 .78rem/1.4 Arial,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--navy);background:#f1eee7}
+.footnotes{border-top:1px solid var(--line);margin-top:3rem;padding-top:1.2rem}
+.footnotes ol{padding-left:1.4rem}
+.footnotes li{font-size:.9rem;margin:.75rem 0}
+.back{font: .78rem Arial,sans-serif;margin-left:.35rem;text-decoration:none}
+footer{background:var(--navy);color:#e9e3d8;padding:2rem 1.2rem;text-align:center;border-top:3px solid var(--gold)}
+footer p{max-width:850px;margin:.4rem auto}
+footer .author{color:var(--gold2);font-size:1.1rem}
+.toplink{font: .8rem Arial,sans-serif}
+@media(max-width:850px){main{grid-template-columns:1fr;gap:1.2rem}nav.toc{position:relative;top:auto;max-height:none}nav.toc ol{columns:2;column-gap:1.5rem}nav.toc li{break-inside:avoid}}
+@media(max-width:520px){body{font-size:16px}nav.toc ol{columns:1}.hero{padding-top:2.5rem}h2.section{font-size:1.55rem}table{display:block;overflow-x:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">O Banquete dos Onze · Material complementar</div>
+    <h1>Entre a Ficção <span>e o Arquivo</span></h1>
+    <p class="subtitle">Dossiê Documental &amp; Histórico</p>
+    <p class="subtitle">A memória servida à mesa dos senhores.</p>
+    <div class="byline"><span>Erigutemberg Meneses</span><span>2026</span><span>Romance histórico · Pernambuco</span></div>
+  </div>
+</header>
+
+<main id="conteudo">
+<nav class="toc" aria-label="Sumário navegável">
+  <h2>Sumário</h2>
+  <ol>
+    <li><a href="#apresentacao">Apresentação</a></li>
+    <li><a href="#metodo">Delimitação e método</a></li>
+    <li><a href="#contexto">Pernambuco, 1865–1877</a></li>
+    <li><a href="#casos">Quatro referências documentais</a></li>
+    <li><a href="#lei">Lei do Ventre Livre</a></li>
+    <li><a href="#peculio">Pecúlio e trabalho ao ganho</a></li>
+    <li><a href="#prova">Documentos e prova</a></li>
+    <li><a href="#imprensa">Imprensa pernambucana</a></li>
+    <li><a href="#ficcao">História e ficção no romance</a></li>
+    <li><a href="#autenticidade">Autenticidade documental</a></li>
+    <li><a href="#acervos">Acervos e pesquisa</a></li>
+    <li><a href="#referencias">Referências</a></li>
+    <li><a href="#nota">Nota final</a></li>
+    <li><a href="#notas">Notas e links</a></li>
+  </ol>
+</nav>
+
+<article>
+<div class="notice"><strong>Nota de leitura.</strong> Os processos históricos aqui mencionados são independentes da trama do romance. Eles não comprovam a existência de Feliciana, Tomás, dos onze senhores ou do banquete. O dossiê distingue fontes identificadas, reproduções acadêmicas, interpretação histórica e criação literária.</div>
+
+<section id="apresentacao">
+<h2 class="section">Apresentação</h2>
+<p><em>O Banquete dos Onze</em> é um romance histórico ambientado em Pernambuco no século XIX. Sua narrativa aborda a escravidão, a separação de famílias, as relações de poder, a circulação de documentos e as possibilidades de resistência de pessoas submetidas ao regime escravista.</p>
+<p>Este dossiê apresenta o contexto histórico, jurídico e social que dialoga com a obra. Reúne referências a pesquisas acadêmicas, processos judiciais identificados em arquivos pernambucanos e legislação imperial pertinente ao período compreendido, principalmente, entre 1865 e 1877.</p>
+<p>O propósito não é transformar a narrativa em reconstituição documental de acontecimentos comprovados. É oferecer elementos para compreender as estruturas sociais e jurídicas que tornavam possíveis situações de separação familiar, negociação de alforrias, disputas judiciais e incerteza quanto à condição jurídica de pessoas escravizadas e libertas.</p>
+<p><strong>Os processos históricos aqui mencionados são reais e independentes da trama do romance.</strong> Eles não comprovam a existência dos personagens Feliciana, Tomás, Evaristo, Joaquim ou dos onze senhores, tampouco demonstram a realização do banquete descrito na narrativa.</p>
+</section>
+
+<section id="metodo">
+<h2 class="section">1. Delimitação histórica e metodológica</h2>
+<p>O recorte principal abrange 1865 a 1877, período marcado por transformações legislativas e disputas em torno da liberdade no Brasil imperial. Em Pernambuco, a economia açucareira continuava profundamente vinculada ao trabalho escravizado. A existência de normas que permitiam determinadas formas de emancipação não significava que a liberdade fosse alcançada automaticamente, nem que as pessoas libertas passassem a viver sem dependência econômica, vigilância ou limitações sociais.</p>
+<p>Pesquisas de história social e da história do direito demonstram que pessoas escravizadas recorreram às instituições judiciais para questionar sua condição, reivindicar direitos e contestar situações de sujeição. As ações de liberdade mobilizavam advogados, curadores, juízes, testemunhas e documentos. O acesso à Justiça, porém, dependia de recursos, representação, conhecimento dos procedimentos e possibilidade de reunir provas.</p>
+<p>A dissertação de Raphaela Ferreira Gonçalves, <em>Domínios da liberdade: um estudo sobre libelos cíveis de liberdade e resistência escrava em Pernambuco oitocentista (1860–1870)</em>, é uma das principais referências deste dossiê. A tese de Gabriel Navarro de Barros, <em>Lei do Ventre Livre: política, infância e liberdade</em>, amplia a compreensão dos efeitos da Lei nº 2.040/1871.</p>
+<h3>1.1. Classificação das informações</h3>
+<ul>
+<li><span class="tag doc">Documento histórico identificado</span> Processo, norma ou registro cuja existência e referência arquivística foram identificadas.</li>
+<li><span class="tag research">Reprodução acadêmica</span> Imagem, transcrição ou descrição de documento apresentada em pesquisa universitária.</li>
+<li><span class="tag">Informação contextual</span> Interpretação histórica fundamentada em estudos acadêmicos e legislação.</li>
+<li><span class="tag">Interpretação do autor</span> Aproximação entre o contexto histórico e elementos narrativos do romance.</li>
+<li><span class="tag fic">Recurso ficcional</span> Personagem, diálogo, documento, situação ou acontecimento criado para a composição literária.</li>
+</ul>
+<p>Uma descrição acadêmica de um processo não substitui a leitura de todas as suas peças. Da mesma forma, uma imagem reproduzida em dissertação não deve ser apresentada como fac-símile integral do processo.</p>
+</section>
+
+<section id="contexto">
+<h2 class="section">2. Pernambuco entre 1865 e 1877: liberdade, dependência e Justiça</h2>
+<p>A sociedade pernambucana do século XIX era estruturada por relações de propriedade, hierarquia social e dependência econômica. A escravidão não se limitava ao trabalho nos engenhos. A condição jurídica das pessoas escravizadas interferia na organização das famílias, na mobilidade, na circulação de bens, na transmissão de patrimônio e nas possibilidades de negociação da própria liberdade.</p>
+<p>A separação de parentes podia decorrer de vendas, transferências patrimoniais, dívidas, partilhas e outras operações envolvendo pessoas escravizadas. A existência de vínculos familiares não impedia, por si só, que interesses econômicos senhoriais se sobrepusessem à preservação desses vínculos.</p>
+<p>As ações judiciais de liberdade constituíram instrumentos de contestação. Pessoas escravizadas e seus representantes podiam questionar a condição jurídica atribuída a alguém, apresentar documentos, invocar normas e produzir testemunhos. A Justiça, entretanto, não era um espaço de igualdade material: uma reivindicação juridicamente relevante podia encontrar obstáculos econômicos, sociais e processuais.</p>
+<p>Essa distância entre a existência de direitos e a capacidade concreta de exercê-los ajuda a compreender o ambiente social do romance.</p>
+</section>
+
+<section id="casos">
+<h2 class="section">3. Quatro referências documentais de Pernambuco</h2>
+<p>Os casos a seguir foram identificados nas pesquisas acadêmicas de Raphaela Ferreira Gonçalves e Gabriel Navarro de Barros. São experiências históricas independentes, utilizadas como referências de contexto. Os nomes e acontecimentos desses processos não devem ser confundidos com os personagens ou episódios ficcionais.</p>
+
+<div class="source-card" id="feliciana">
+<span class="tag doc">Processo histórico identificado</span><span class="tag research">Descrição acadêmica</span>
+<h3>3.1. O processo de Feliciana — Pedras de Fogo, 1869</h3>
+<p>A pesquisa de Gonçalves identifica um processo civil envolvendo uma mulher escravizada chamada Feliciana, em Pedras de Fogo, em 1869. Segundo a descrição acadêmica, essa mulher foi recolhida à cadeia da vila de Macapá e possuía uma quantia em dinheiro que pretendia utilizar para negociar sua alforria.</p>
+<p>O caso demonstra que mulheres escravizadas podiam mobilizar recursos econômicos e procurar caminhos para obter a liberdade, inclusive por meio de negociações e iniciativas judiciais.</p>
+<ul><li><strong>Natureza:</strong> processo civil envolvendo Feliciana.</li><li><strong>Localidade:</strong> Pedras de Fogo, Pernambuco.</li><li><strong>Ano:</strong> 1869.</li><li><strong>Acervo indicado:</strong> Memorial da Justiça de Pernambuco.</li></ul>
+<p>A pesquisa reproduz a primeira página do processo em seu anexo. Essa reprodução é uma referência visual relevante, mas não substitui o exame integral do original.</p>
+<p><strong>Limite documental:</strong> a Feliciana histórica não é a personagem do romance. A coincidência nominal não demonstra qualquer relação entre as duas mulheres.</p>
+<p><strong>Relação com o romance:</strong> o processo oferece um paralelo para a representação de mulheres que procuravam reunir recursos e negociar sua liberdade em um ambiente de desigualdade jurídica e econômica.</p>
+</div>
+
+<div class="source-card" id="rosa">
+<span class="tag doc">Processo histórico identificado</span><span class="tag research">Descrição acadêmica</span>
+<h3>3.2. A ação de liberdade de Rosa — Recife, 1867</h3>
+<p>Gonçalves examina o caso de Rosa, envolvida em uma ação de liberdade no Recife, em 1867. A documentação analisada registra aspectos de sua atividade de trabalho e de sua relação econômica com Marinha Amália da Silva. Rosa trabalhava ao ganho e recebia jornais, valores que podiam ser destinados ao pagamento de sua liberdade.</p>
+<p>O caso permite compreender uma modalidade de trabalho urbano na qual pessoas escravizadas exerciam atividades remuneradas, mas permaneciam submetidas a relações de controle e obrigação perante seus senhores. A remuneração não significava liberdade jurídica.</p>
+<ul><li><strong>Pessoa:</strong> Rosa.</li><li><strong>Natureza:</strong> ação de liberdade e documentação relativa ao depósito.</li><li><strong>Localidade/ano:</strong> Recife, 1867.</li><li><strong>Acervo indicado:</strong> IAHGP, documentação do Tribunal da Relação de Pernambuco, caixa identificada na pesquisa pelo ano de 1867.</li></ul>
+<p>A dissertação reproduz peças relacionadas à petição inicial e à discussão sobre o depósito, além de descrever o trabalho de Rosa e a utilização dos valores recebidos.</p>
+<p><strong>Limite documental:</strong> a descrição acadêmica não equivale à transcrição diplomática integral do processo. Esta depende da conferência de todas as peças originais.</p>
+<p><strong>Relação com o romance:</strong> o caso contextualiza a possibilidade de uma personagem escravizada trabalhar, receber valores e tentar construir uma margem econômica própria, sem presumir autonomia plena ou alforria automática.</p>
+</div>
+
+<div class="source-card" id="florinda">
+<span class="tag doc">Processo histórico identificado</span><span class="tag research">Referência com divergência arquivística</span>
+<h3>3.3. Florinda Maria da Conceição e a liberdade dos filhos</h3>
+<p>A pesquisa de Gonçalves examina a situação de Florinda Maria da Conceição, cuja condição jurídica e a de seus filhos foram discutidas em documentação judicial. A condição da mãe antes do nascimento dos filhos tinha consequências para a discussão sobre a liberdade deles.</p>
+<p>A pesquisa apresenta documentação relativa à alforria de Florinda e à controvérsia envolvendo seus filhos, entre eles Bellarmino e Antônio. A certidão de batismo de um dos filhos aparece como elemento importante na discussão. A pesquisadora também relata dificuldades relacionadas à localização e à preservação desse documento.</p>
+<p>A referência está associada ao processo envolvendo os curadores dos pardos Bellarmino José de Sant’Anna e Antônio Gonçalves Magdaleno contra Balthazar José Magalhães Bastos, Adriano e Castro e João Carlos Cavalcante d’Albuquerque.</p>
+<ul><li><strong>Natureza:</strong> ação de liberdade e documentação sobre a condição jurídica dos filhos.</li><li><strong>Período:</strong> 1865–1868, conforme referências distintas da pesquisa.</li><li><strong>Acervo indicado:</strong> Tribunal da Relação de Pernambuco, IAHGP.</li><li><strong>Peças reproduzidas:</strong> documento relativo à alforria de Florinda e documentação do processo dos filhos.</li></ul>
+<p><strong>Ressalva arquivística:</strong> a pesquisa situa o início da ação em 1865 e seu encerramento em 1867, enquanto a referência de caixa no inventário aparece associada a 1868. A divergência deve ser resolvida mediante consulta direta ao acervo.</p>
+<p><strong>Relação com o romance:</strong> o caso demonstra a importância de estabelecer a situação jurídica da mãe na data do nascimento dos filhos. É um contraponto histórico à trajetória de Tomás, personagem ficcional nascido em 1852, quando sua mãe ainda se encontrava escravizada.</p>
+</div>
+
+<div class="source-card" id="ipojuca">
+<span class="tag doc">Processo histórico identificado</span><span class="tag research">Descrição acadêmica</span>
+<h3>3.4. A ação de liberdade de Ipojuca — 1877</h3>
+<p>Segundo a pesquisa de Gabriel Navarro de Barros, a ação de liberdade começou em Ipojuca em 8 de janeiro de 1877, inicialmente com 21 pessoas, chegando posteriormente a 24 reivindicantes.</p>
+<p>Em 12 de janeiro, o juiz determinou que os envolvidos fossem levados à presença da Justiça para receberem suas cartas de liberdade, com fundamento no art. 8º, § 2º, da Lei nº 2.040/1871. A discussão dizia respeito à ausência de matrícula das pessoas escravizadas, por culpa ou omissão dos interessados.</p>
+<p>Em 15 de janeiro, o oficial responsável certificou que havia comparecido ao Engenho Gaipió, mas os proprietários se recusaram a entregar as pessoas envolvidas.</p>
+<ul><li><strong>Natureza:</strong> ação de liberdade.</li><li><strong>Comarca:</strong> Ipojuca, Pernambuco.</li><li><strong>Início:</strong> 8 de janeiro de 1877.</li><li><strong>Acervo:</strong> Memorial da Justiça de Pernambuco.</li><li><strong>Identificação:</strong> Processos cíveis, Ação de liberdade, Caixa 0030, Comarca de Ipojuca, 1877.</li><li><strong>Peças indicadas:</strong> pp. 5–10; decisão de 12 de janeiro, p. 10; certidão do oficial, p. 10 verso; documentos posteriores, pp. 11–14.</li></ul>
+<p><strong>Limite documental:</strong> a ação não comprova que Tomás estivesse entre os envolvidos, nem que tivesse sido omitido da matrícula ou possuísse condição jurídica idêntica.</p>
+<p><strong>Relação com o romance:</strong> o episódio oferece um exemplo concreto de como a aplicação da Lei do Ventre Livre podia produzir conflitos entre a norma, os registros administrativos e a resistência senhorial.</p>
+</div>
+</section>
+
+<section id="lei">
+<h2 class="section">4. A Lei do Ventre Livre e seus limites</h2>
+<p>A Lei nº 2.040, de 28 de setembro de 1871, conhecida como Lei do Ventre Livre ou Lei Rio Branco, declarou livres os filhos de mulheres escravizadas nascidos a partir da data de sua promulgação.</p>
+<p>O art. 1º estabeleceu essa condição jurídica, mas também previu que os filhos menores ficariam sob o poder e a autoridade dos senhores de suas mães até os oito anos. A partir dessa idade, o senhor poderia optar pela indenização estatal ou pela utilização dos serviços do menor até os 21 anos. A lei, portanto, não significou libertação imediata e irrestrita de todas as crianças abrangidas.</p>
+<p>O art. 4º reconheceu a possibilidade de formação de pecúlio com doações, legados, heranças e valores obtidos pelo trabalho e economias, observadas as condições legais. Seu § 2º estabeleceu que a pessoa escravizada que reunisse, por meio do pecúlio, os recursos necessários à indenização de seu valor teria direito à alforria, com possibilidade de arbitramento judicial na falta de acordo.</p>
+<p>O § 5º tratou das alforrias condicionadas à prestação de serviços durante determinado período. Previu que a falta de cumprimento da cláusula não anularia a alforria, mas permitiria exigir a obrigação por meio de trabalho em estabelecimentos públicos ou de contratos de serviços a particulares.</p>
+<p>O art. 8º determinou a matrícula especial das pessoas escravizadas. Seu § 2º estabeleceu que aquelas não matriculadas, por culpa ou omissão dos interessados, até um ano depois do encerramento da matrícula, seriam consideradas libertas.</p>
+<h3>4.1. A situação de Tomás no romance</h3>
+<p>Tomás nasceu em 1852. Por essa razão, não foi alcançado pela declaração de liberdade do art. 1º da Lei nº 2.040/1871, aplicável aos filhos de mulheres escravizadas nascidos a partir da data da lei.</p>
+<p>A alforria concedida à mãe, Feliciana, em 1869, também não demonstra, por si só, que Tomás tenha sido libertado. A condição jurídica de uma pessoa não se transmite automaticamente à outra em razão do vínculo familiar.</p>
+<p>A situação de Tomás em 1877 deve permanecer documentalmente indeterminada enquanto não houver prova ficcional expressa de sua alforria, de outra causa jurídica de liberdade ou de circunstância legal específica que altere sua condição. Trabalhar, aprender a ler, manter correspondência ou viajar não basta, isoladamente, para demonstrar liberdade formal.</p>
+<p>A incerteza jurídica de Tomás não é uma falha narrativa. Tratada com clareza, representa uma contradição histórica do período: a distância entre vínculos familiares, experiências de autonomia e reconhecimento jurídico da liberdade.</p>
+</section>
+
+<section id="peculio">
+<h2 class="section">5. Pecúlio, trabalho ao ganho e negociação da alforria</h2>
+<p><strong>Pecúlio</strong> era o conjunto de valores ou bens que uma pessoa escravizada podia reunir nas condições admitidas pela legislação. A Lei nº 2.040/1871 reconheceu expressamente sua formação por doações, legados, heranças e rendimentos do trabalho e economias, observadas as condições legais.</p>
+<p><strong>Trabalho ao ganho</strong> era modalidade em que a pessoa escravizada realizava atividades remuneradas e entregava ao senhor uma quantia previamente estabelecida ou os valores devidos pela relação de trabalho. A possibilidade de conservar parte do dinheiro dependia das circunstâncias concretas e das relações de controle.</p>
+<p>Os conceitos não devem ser confundidos. O trabalho remunerado não tornava a pessoa livre, e a existência de economias não significava que ela pudesse dispor dos valores sem restrições.</p>
+<p>O caso de Rosa, examinado na pesquisa de Gonçalves, oferece um exemplo histórico de trabalho ao ganho e de valores relacionados à negociação da liberdade. A prática de reunir recursos não começou com a lei de 1871; a norma conferiu reconhecimento jurídico mais explícito a mecanismos de pecúlio e emancipação.</p>
+</section>
+
+<section id="prova">
+<h2 class="section">6. Documentos, registros e prova</h2>
+<p>No século XIX, diferentes documentos podiam ter importância para a demonstração da condição jurídica de uma pessoa. Uma carta de alforria podia registrar a concessão da liberdade, suas condições e eventuais obrigações. Um registro de batismo podia contribuir para estabelecer filiação e data de nascimento. Uma matrícula podia identificar pessoas escravizadas e permitir examinar o cumprimento das exigências legais. Recibos, contratos e registros financeiros podiam ajudar a reconstruir relações econômicas.</p>
+<p>Nenhum desses documentos deve ser interpretado isoladamente, sem considerar sua origem, data, finalidade e contexto. A ausência de um documento em um conjunto de papéis preservados não prova necessariamente que o fato correspondente jamais ocorreu. Pode indicar perda, extravio, destruição, dispersão ou ausência de registro.</p>
+<p>Da mesma forma, uma anotação privada não possui automaticamente o mesmo valor probatório de uma decisão judicial ou de um registro oficial.</p>
+<p>Essa distinção é relevante para a estrutura narrativa de <em>O Banquete dos Onze</em>. O romance trabalha com cartas, cadernos, registros, documentos privados e relatos de memória. A força literária desses materiais está na tensão entre aquilo que registram, aquilo que deixam de registrar e aquilo que as personagens conseguem reconstruir.</p>
+<p>Memória, testemunho, indício e prova documental são categorias diferentes.</p>
+</section>
+
+<section id="imprensa">
+<h2 class="section">7. Imprensa pernambucana e publicidade da liberdade</h2>
+<p>Os jornais que circularam em Pernambuco no século XIX constituem fontes importantes para o estudo da escravidão, da emancipação, das fugas, das negociações de alforria e das disputas judiciais. Pesquisas acadêmicas identificaram referências a publicações no <em>Diário de Pernambuco</em>, no <em>Jornal do Recife</em> e em <em>A Província</em>.</p>
+<p>Essas referências incluem notícias sobre alforrias, anúncios, informações administrativas e discussões relacionadas à Lei do Ventre Livre. É necessário distinguir a data de publicação da data do acontecimento narrado e verificar se a notícia se refere a Pernambuco ou a outra província. Um periódico publicado no Recife podia reproduzir informações de outras regiões do Império.</p>
+<p>Por esse motivo, este dossiê não apresenta como transcrição diplomática qualquer anúncio ou notícia cuja imagem integral e identificação completa da edição não tenham sido conferidas diretamente.</p>
+<p><a href="https://memoria.bn.gov.br/hdb/periodico.aspx" target="_blank" rel="noopener noreferrer">Consultar a Hemeroteca Digital Brasileira</a>.</p>
+</section>
+
+<section id="ficcao">
+<h2 class="section">8. O que é histórico e o que é ficcional no romance</h2>
+<h3>8.1. Elementos históricos de contexto</h3>
+<ul><li>A existência de ações de liberdade em Pernambuco.</li><li>A participação de pessoas escravizadas em disputas judiciais.</li><li>A utilização de documentos, testemunhos e registros em processos.</li><li>A possibilidade de negociação de alforrias.</li><li>A existência de pecúlio e de trabalho ao ganho.</li><li>As dificuldades materiais e sociais de acesso à Justiça.</li><li>Os efeitos e limites da Lei nº 2.040/1871.</li><li>A resistência de proprietários ao cumprimento de decisões e determinações judiciais.</li><li>A importância de registros de nascimento, batismo e matrícula na discussão sobre a condição jurídica.</li></ul>
+<h3>8.2. Elementos pertencentes à ficção</h3>
+<ul><li>Feliciana e sua trajetória individual.</li><li>Tomás e sua história familiar.</li><li>Os onze senhores de engenho.</li><li>O banquete e os acontecimentos relacionados a ele.</li><li>Os diálogos e as cartas atribuídos às personagens.</li><li>O caderno, os cofres e os documentos privados da trama.</li><li>As circunstâncias particulares da separação e do reencontro familiar.</li><li>As relações entre as personagens e os acontecimentos narrados.</li></ul>
+<p>Os documentos ficcionais que aparecem na narrativa são recursos literários. Mesmo quando imitam a aparência de registros históricos, não devem ser confundidos com documentos preservados em arquivos públicos.</p>
+<h3>8.3. A Feliciana histórica e a Feliciana ficcional</h3>
+<p>A existência de um processo histórico envolvendo uma mulher chamada Feliciana, em Pedras de Fogo, em 1869, merece atenção especial. A coincidência nominal não autoriza afirmar que a personagem do romance foi baseada diretamente naquela mulher, nem que os fatos do processo tenham ocorrido com a protagonista.</p>
+<p>O caso é apresentado como referência histórica independente. Seu valor está em demonstrar que mulheres escravizadas procuravam reunir recursos, negociar alforrias e enfrentar situações de sujeição. A personagem Feliciana pertence à construção ficcional do autor.</p>
+</section>
+
+<section id="autenticidade">
+<h2 class="section">9. Critérios de preservação e autenticidade documental</h2>
+<p>A preservação digital exige que o leitor possa identificar a natureza de cada item. Recomenda-se utilizar as seguintes classificações:</p>
+<ul>
+<li><span class="tag doc">Documento histórico original</span> Somente quando houver reprodução verificável do documento original, com identificação do acervo e referência suficiente para sua localização.</li>
+<li><span class="tag research">Reprodução de pesquisa acadêmica</span> Para imagens ou trechos reproduzidos em dissertações, teses e artigos. Deve-se identificar o autor da pesquisa e a página da publicação.</li>
+<li><span class="tag research">Transcrição acadêmica</span> Quando o texto tiver sido transcrito por pesquisador identificado. A transcrição deve ser atribuída à publicação consultada, e não apresentada como conferência direta do original pelo responsável pelo dossiê.</li>
+<li><span class="tag fic">Reconstituição ficcional</span> Para documentos criados para o romance, ainda que apresentem aparência de registros históricos.</li>
+<li><span class="tag fic">Ilustração ficcional</span> Para imagens produzidas para representar personagens, ambientes ou acontecimentos inventados.</li>
+</ul>
+<p>Para as imagens ficcionais do romance, mantém-se a identificação: <em>“Ilustração gerada por IA sob curadoria do autor, 2026. Peça ficcional; não constitui documentação histórica.”</em></p>
+<p>Para fac-símiles ficcionais, deve ser aplicada, de maneira visível, a tarja:</p>
+<blockquote><strong>RECONSTITUIÇÃO FICCIONAL — DOCUMENTO CRIADO PARA O ROMANCE</strong></blockquote>
+<p>Essa identificação deve permanecer na imagem, inclusive quando ela for convertida para preto e branco, reduzida ou incorporada a uma página digital. Nenhum documento ficcional deve ser apresentado de modo que induza o leitor a considerá-lo original de arquivo.</p>
+</section>
+
+<section id="acervos">
+<h2 class="section">10. Acervos e caminhos de pesquisa</h2>
+<h3>10.1. Memorial da Justiça de Pernambuco — TJPE</h3>
+<p>O Memorial da Justiça de Pernambuco preserva documentação judicial histórica. Seu projeto Memorial Digital disponibilizou inventário e conteúdo de uma primeira etapa de digitalização de 500 processos criminais do período imperial, entre 1822 e 1889. Essa primeira etapa não significa que todos os processos cíveis citados neste dossiê estejam disponíveis integralmente para consulta digital.</p>
+<p><a href="https://portal.tjpe.jus.br/web/memorial-da-justica/digital" target="_blank" rel="noopener noreferrer">Memorial Digital — TJPE</a> · <a href="https://atom.tjpe.jus.br/index.php/informationobject/browse" target="_blank" rel="noopener noreferrer">Catálogo AToM</a>.</p>
+<h3>10.2. Instituto Arqueológico, Histórico e Geográfico Pernambucano — IAHGP</h3>
+<p>O IAHGP é instituição de referência para a preservação e o estudo da história pernambucana. A pesquisa de Gonçalves indica documentos do Tribunal da Relação de Pernambuco preservados nesse acervo. A localização de uma caixa em pesquisa acadêmica não garante que a documentação esteja integralmente digitalizada ou disponível para acesso remoto.</p>
+<p><a href="https://iahgp.com.br/" target="_blank" rel="noopener noreferrer">Site institucional do IAHGP</a>.</p>
+<h3>10.3. Hemeroteca Digital Brasileira</h3>
+<p>A Hemeroteca Digital Brasileira permite pesquisar periódicos históricos, incluindo jornais que circularam em Pernambuco. A identificação de uma notícia deve incluir, sempre que possível, título do periódico, local de publicação, data, número ou edição e página.</p>
+<p><a href="https://memoria.bn.gov.br/hdb/periodico.aspx" target="_blank" rel="noopener noreferrer">Portal da Hemeroteca Digital</a>.</p>
+<h3>10.4. Repositório Institucional da UFPE</h3>
+<p>As dissertações e teses utilizadas neste dossiê estão disponíveis no Repositório Institucional da Universidade Federal de Pernambuco.</p>
+<p><a href="https://repositorio.ufpe.br/" target="_blank" rel="noopener noreferrer">Repositório Institucional da UFPE</a>.</p>
+</section>
+
+<section id="referencias">
+<h2 class="section">11. Referências bibliográficas e documentais</h2>
+<h3>11.1. Pesquisas acadêmicas</h3>
+<p><strong>GONÇALVES, Raphaela Ferreira.</strong> <em>Domínios da liberdade: um estudo sobre libelos cíveis de liberdade e resistência escrava em Pernambuco oitocentista (1860–1870).</em> 2020. Dissertação (Mestrado em História) — Centro de Filosofia e Ciências Humanas, Universidade Federal de Pernambuco, Recife, 2020.</p>
+<p><a href="https://repositorio.ufpe.br/bitstream/123456789/39593/1/DISSERTA%C3%87%C3%83O%20Raphaela%20Ferreira%20Gon%C3%A7alves.pdf" target="_blank" rel="noopener noreferrer">Acessar a dissertação em PDF</a>.</p>
+<p><strong>BARROS, Gabriel Navarro de.</strong> <em>Lei do Ventre Livre: política, infância e liberdade.</em> 2020. Tese (Doutorado em História) — Universidade Federal de Pernambuco, Recife, 2020.</p>
+<p><a href="https://repositorio.ufpe.br/bitstream/123456789/58189/1/TESE%20Gabriel%20Navarro%20de%20Barros.pdf" target="_blank" rel="noopener noreferrer">Acessar a tese em PDF</a>.</p>
+<h3>11.2. Legislação</h3>
+<p><strong>BRASIL.</strong> Lei nº 2.040, de 28 de setembro de 1871. Declara de condição livre os filhos de mulher escrava que nascerem desde a data desta lei, liberta os escravos da nação e outros, e providencia sobre a criação e tratamento daqueles filhos menores e sobre a libertação anual de escravos.</p>
+<p><a href="https://www2.camara.leg.br/legin/fed/leimp/1824-1899/lei-2040-28-setembro-1871-538828-publicacaooriginal-35591-pl.html" target="_blank" rel="noopener noreferrer">Consultar o texto da publicação original</a>.</p>
+<h3>11.3. Referências arquivísticas identificadas em pesquisas acadêmicas</h3>
+<table>
+<thead><tr><th>Acervo</th><th>Referência identificada</th><th>Observação</th></tr></thead>
+<tbody>
+<tr><td>Memorial da Justiça de Pernambuco</td><td>Processo civil envolvendo Feliciana, Pedras de Fogo, 1869.</td><td>Referência identificada na dissertação de Gonçalves; original integral não reproduzido aqui.</td></tr>
+<tr><td>Memorial da Justiça de Pernambuco</td><td>Ação de liberdade, Comarca de Ipojuca, 1877, Caixa 0030.</td><td>Peças e páginas indicadas na tese de Barros; acesso integral depende do acervo.</td></tr>
+<tr><td>IAHGP / Tribunal da Relação de Pernambuco</td><td>Ação de liberdade de Rosa, Recife, 1867.</td><td>Referência indicada na dissertação de Gonçalves.</td></tr>
+<tr><td>IAHGP / Tribunal da Relação de Pernambuco</td><td>Processo envolvendo Bellarmino José de Sant’Anna e Antônio Gonçalves Magdaleno; documentação relativa a Florinda Maria da Conceição.</td><td>Há divergência entre período de tramitação e ano da caixa indicado na pesquisa.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="nota">
+<h2 class="section">12. Nota sobre a natureza deste dossiê</h2>
+<p>Este dossiê foi preparado como material complementar ao romance <em>O Banquete dos Onze</em>, de Erigutemberg Meneses. Seu conteúdo combina legislação imperial, referências arquivísticas, pesquisas acadêmicas e interpretação histórica destinada a contextualizar a narrativa.</p>
+<p>Não se trata de edição crítica de processos judiciais, inventário arquivístico oficial ou publicação de fac-símiles integrais dos documentos mencionados. As descrições dos processos de Feliciana, Rosa, Florinda e Ipojuca foram construídas a partir das pesquisas acadêmicas identificadas na bibliografia. A apresentação dessas referências não significa que todos os originais tenham sido integralmente consultados ou reproduzidos neste dossiê.</p>
+<p>Os documentos, cartas, cadernos e registros criados para a narrativa são ficcionais, salvo indicação documental expressa em sentido contrário. A presença de acontecimentos historicamente possíveis não transforma personagens e episódios literários em fatos comprovados.</p>
+<h3>Consideração final</h3>
+<p>A história da liberdade no Brasil imperial não se resume à promulgação de leis. Ela também se encontra nas disputas judiciais, nos registros incompletos, nas cartas preservadas, nas economias reunidas com dificuldade e nas tentativas de reconstrução de vínculos familiares.</p>
+<p>Os processos aqui apresentados mostram que pessoas escravizadas não foram apenas objetos das decisões de seus senhores ou das instituições imperiais. Também formularam reivindicações, procuraram testemunhas, mobilizaram recursos, recorreram à Justiça e participaram ativamente das disputas em torno de sua condição jurídica.</p>
+<blockquote><strong>A memória servida à mesa dos senhores não é a história inteira. É aquilo que restou, aquilo que foi ocultado e aquilo que ainda precisa ser interrogado.</strong></blockquote>
+</section>
+
+<section id="notas" class="footnotes">
+<h2 class="section">Notas e links de consulta</h2>
+<ol>
+<li id="n1">GONÇALVES, Raphaela Ferreira. <em>Domínios da liberdade</em>, UFPE, 2020. Pesquisa que identifica os casos de Feliciana, Rosa, Florinda e outros processos de liberdade em Pernambuco. <a href="https://repositorio.ufpe.br/bitstream/123456789/39593/1/DISSERTA%C3%87%C3%83O%20Raphaela%20Ferreira%20Gon%C3%A7alves.pdf" target="_blank" rel="noopener noreferrer">PDF da dissertação</a>. <a class="back" href="#casos" aria-label="Voltar ao texto">↩ voltar</a></li>
+<li id="n2">BARROS, Gabriel Navarro de. <em>Lei do Ventre Livre: política, infância e liberdade</em>, UFPE, 2020. Pesquisa que examina a Lei nº 2.040/1871 e a ação de liberdade de Ipojuca de 1877. <a href="https://repositorio.ufpe.br/bitstream/123456789/58189/1/TESE%20Gabriel%20Navarro%20de%20Barros.pdf" target="_blank" rel="noopener noreferrer">PDF da tese</a>. <a class="back" href="#ipojuca" aria-label="Voltar ao texto">↩ voltar</a></li>
+<li id="n3">BRASIL. Lei nº 2.040, de 28 de setembro de 1871. <a href="https://www2.camara.leg.br/legin/fed/leimp/1824-1899/lei-2040-28-setembro-1871-538828-publicacaooriginal-35591-pl.html" target="_blank" rel="noopener noreferrer">Texto legal</a>. <a class="back" href="#lei" aria-label="Voltar ao texto">↩ voltar</a></li>
+<li id="n4">Memorial da Justiça de Pernambuco — TJPE. <a href="https://portal.tjpe.jus.br/web/memorial-da-justica/digital" target="_blank" rel="noopener noreferrer">Memorial Digital</a> e <a href="https://atom.tjpe.jus.br/index.php/informationobject/browse" target="_blank" rel="noopener noreferrer">catálogo AToM</a>. <a class="back" href="#acervos" aria-label="Voltar ao texto">↩ voltar</a></li>
+<li id="n5">Hemeroteca Digital Brasileira. <a href="https://memoria.bn.gov.br/hdb/periodico.aspx" target="_blank" rel="noopener noreferrer">Portal de periódicos</a>. <a class="back" href="#imprensa" aria-label="Voltar ao texto">↩ voltar</a></li>
+</ol>
+<p class="small">Nota de atualização: os endereços e a disponibilidade dos acervos digitais podem mudar. A indicação de um acervo não significa que o documento citado esteja integralmente digitalizado ou acessível por link direto.</p>
+</section>
+<p class="toplink"><a href="#top">↑ Voltar ao início</a></p>
+</article>
+</main>
+<footer>
+  <p class="author">Erigutemberg Meneses · 2026</p>
+  <p>O Banquete dos Onze — Entre a Ficção e o Arquivo</p>
+  <p class="small" style="color:#c9c2b6">Material complementar de caráter histórico e documental. Personagens e acontecimentos do romance são ficcionais.</p>
+</footer>
+</body>
+</html>
